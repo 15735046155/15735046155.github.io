@@ -337,25 +337,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Permise在实际项目中应用记录</title>
-    <url>/2020/09/22/promise/</url>
-    <content><![CDATA[<ul>
-<li>首先插播一段Permise的知识</li>
-</ul>
-<h1 id="Permise的执行"><a href="#Permise的执行" class="headerlink" title="Permise的执行"></a>Permise的执行</h1><blockquote>
-<p>promise会在当前轮的最后当作微任务执行</p>
-</blockquote>
-<figure class="highlight coffeescript"><table><tr><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'a'</span>), <span class="number">0</span>)</span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'b'</span>), <span class="number">1000</span>)</span><br><span class="line">Promise.resolve()</span><br><span class="line">    .<span class="keyword">then</span>(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'c'</span>), <span class="number">0</span>)</span><br><span class="line">        setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'d'</span>), <span class="number">1000</span>)</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'e'</span>);</span><br><span class="line">        Promise.resolve()</span><br><span class="line">            .<span class="keyword">then</span>(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">'f'</span>)</span><br><span class="line">            &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">    .<span class="keyword">then</span>(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'g'</span>))</span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'h'</span>), <span class="number">0</span>)</span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'i'</span>), <span class="number">1000</span>)</span><br><span class="line"><span class="regexp">//</span> efg ahc bid</span><br></pre></td></tr></table></figure>
-<h2 id="解决上述问题"><a href="#解决上述问题" class="headerlink" title="解决上述问题"></a>解决上述问题</h2><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><p><code>promise.all</code> 其中一个失败导致整个的结果都是失败的处理方法<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> axios = <span class="built_in">require</span>(<span class="string">'axios'</span>)</span><br><span class="line"><span class="comment">//xxx 地址不存在肯定会失败</span></span><br><span class="line"><span class="keyword">let</span> arr = [</span><br><span class="line">  <span class="string">"https://www.baidu.com"</span>,</span><br><span class="line">  <span class="string">"httpss://github.com/"</span>,</span><br><span class="line">  <span class="string">"http://xxx"</span> </span><br><span class="line">]</span><br><span class="line"><span class="comment">// promise数组</span></span><br><span class="line"><span class="keyword">const</span> promises = arr.map(<span class="function"><span class="params">item</span> =&gt;</span> axios(item))</span><br><span class="line"><span class="keyword">const</span> p = <span class="built_in">Promise</span>.all(promises)</span><br><span class="line">p.then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'res'</span>, res) <span class="comment">// 此处的res是每一个请求返回的结果</span></span><br><span class="line">&#125;).catch(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(err)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 以上情况 如果其中一个任务失败，必定导致整个任务的结果都是失败的，</span></span><br><span class="line"><span class="comment">// 所以需要对数组中每个promise都去处理下catch,才会成功</span></span><br><span class="line"><span class="comment">// 解决办法  第九行代码，每一个都catch那么结果都是成功的，失败的都会返回hhh，后续也可根据hhh判断失败的</span></span><br><span class="line"><span class="keyword">const</span> promises = arr.map(<span class="function"><span class="params">item</span> =&gt;</span> axios(item).catch(e) =&gt; <span class="string">'hhh'</span>)</span><br></pre></td></tr></table></figure></p>
-<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [</span><br><span class="line">    <span class="string">"https://github.com/"</span>,</span><br><span class="line">    <span class="string">"https://www.baidu.com/"</span>,</span><br><span class="line">    <span class="string">"https://xxx"</span></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> promise = <span class="built_in">Promise</span>.allSettled(arr.map(<span class="function"><span class="params">item</span> =&gt;</span> axios(item)))</span><br><span class="line">promise.then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 结果</span></span><br><span class="line">[</span><br><span class="line">  &#123;</span><br><span class="line">    status: <span class="string">"fulflled"</span>,</span><br><span class="line">    value:&#123;</span><br><span class="line">      code: <span class="number">200</span>,</span><br><span class="line">      statustext: <span class="string">"ok"</span>,</span><br><span class="line">      ....</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,<span class="comment">// 成功的</span></span><br><span class="line">  ...</span><br><span class="line">  &#123;</span><br><span class="line">    status: <span class="string">"rejected"</span>,</span><br><span class="line">    reason:&#123;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;<span class="comment">// 失败的</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>实际项目记录</category>
-      </categories>
-      <tags>
-        <tag>实际项目记录</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>this指向问题</title>
     <url>/2020/09/21/this/</url>
     <content><![CDATA[<p>我们先来看几个函数调用的场景 </p>
@@ -466,6 +447,132 @@
       </categories>
       <tags>
         <tag>Js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Permise在实际项目中应用记录</title>
+    <url>/2020/09/22/promise/</url>
+    <content><![CDATA[<ul>
+<li>首先插播一段Permise的知识</li>
+</ul>
+<h1 id="Permise的执行"><a href="#Permise的执行" class="headerlink" title="Permise的执行"></a>Permise的执行</h1><blockquote>
+<p>promise会在当前轮的最后当作微任务执行</p>
+</blockquote>
+<figure class="highlight coffeescript"><table><tr><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'a'</span>), <span class="number">0</span>)</span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'b'</span>), <span class="number">1000</span>)</span><br><span class="line">Promise.resolve()</span><br><span class="line">    .<span class="keyword">then</span>(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'c'</span>), <span class="number">0</span>)</span><br><span class="line">        setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'d'</span>), <span class="number">1000</span>)</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'e'</span>);</span><br><span class="line">        Promise.resolve()</span><br><span class="line">            .<span class="keyword">then</span>(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">'f'</span>)</span><br><span class="line">            &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">    .<span class="keyword">then</span>(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'g'</span>))</span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'h'</span>), <span class="number">0</span>)</span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'i'</span>), <span class="number">1000</span>)</span><br><span class="line"><span class="regexp">//</span> efg ahc bid</span><br></pre></td></tr></table></figure>
+<h2 id="解决上述问题"><a href="#解决上述问题" class="headerlink" title="解决上述问题"></a>解决上述问题</h2><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><p><code>promise.all</code> 其中一个失败导致整个的结果都是失败的处理方法<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> axios = <span class="built_in">require</span>(<span class="string">'axios'</span>)</span><br><span class="line"><span class="comment">//xxx 地址不存在肯定会失败</span></span><br><span class="line"><span class="keyword">let</span> arr = [</span><br><span class="line">  <span class="string">"https://www.baidu.com"</span>,</span><br><span class="line">  <span class="string">"httpss://github.com/"</span>,</span><br><span class="line">  <span class="string">"http://xxx"</span> </span><br><span class="line">]</span><br><span class="line"><span class="comment">// promise数组</span></span><br><span class="line"><span class="keyword">const</span> promises = arr.map(<span class="function"><span class="params">item</span> =&gt;</span> axios(item))</span><br><span class="line"><span class="keyword">const</span> p = <span class="built_in">Promise</span>.all(promises)</span><br><span class="line">p.then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'res'</span>, res) <span class="comment">// 此处的res是每一个请求返回的结果</span></span><br><span class="line">&#125;).catch(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(err)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 以上情况 如果其中一个任务失败，必定导致整个任务的结果都是失败的，</span></span><br><span class="line"><span class="comment">// 所以需要对数组中每个promise都去处理下catch,才会成功</span></span><br><span class="line"><span class="comment">// 解决办法  第九行代码，每一个都catch那么结果都是成功的，失败的都会返回hhh，后续也可根据hhh判断失败的</span></span><br><span class="line"><span class="keyword">const</span> promises = arr.map(<span class="function"><span class="params">item</span> =&gt;</span> axios(item).catch(e) =&gt; <span class="string">'hhh'</span>)</span><br></pre></td></tr></table></figure></p>
+<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [</span><br><span class="line">    <span class="string">"https://github.com/"</span>,</span><br><span class="line">    <span class="string">"https://www.baidu.com/"</span>,</span><br><span class="line">    <span class="string">"https://xxx"</span></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> promise = <span class="built_in">Promise</span>.allSettled(arr.map(<span class="function"><span class="params">item</span> =&gt;</span> axios(item)))</span><br><span class="line">promise.then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 结果</span></span><br><span class="line">[</span><br><span class="line">  &#123;</span><br><span class="line">    status: <span class="string">"fulflled"</span>,</span><br><span class="line">    value:&#123;</span><br><span class="line">      code: <span class="number">200</span>,</span><br><span class="line">      statustext: <span class="string">"ok"</span>,</span><br><span class="line">      ....</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,<span class="comment">// 成功的</span></span><br><span class="line">  ...</span><br><span class="line">  &#123;</span><br><span class="line">    status: <span class="string">"rejected"</span>,</span><br><span class="line">    reason:&#123;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;<span class="comment">// 失败的</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>实际项目记录</category>
+      </categories>
+      <tags>
+        <tag>实际项目记录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>前端面试题3</title>
+    <url>/2020/09/21/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%983/</url>
+    <content><![CDATA[<blockquote>
+<p>渐进增强跟优雅降级的区别</p>
+</blockquote>
+<p>渐进增强写法：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.transition</span>&#123;</span><br><span class="line">  <span class="attribute">-webkit-transition</span>: all .<span class="number">5s</span>;</span><br><span class="line">     <span class="attribute">-moz-transition</span>: all .<span class="number">5s</span>;</span><br><span class="line">       <span class="attribute">-o-transition</span>: all .<span class="number">5s</span>;</span><br><span class="line">          <span class="attribute">transition</span>: all .<span class="number">5s</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>优雅降级写法：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.transition</span>&#123; </span><br><span class="line">　　     <span class="attribute">transition</span>: all .<span class="number">5s</span>;</span><br><span class="line">　　  <span class="attribute">-o-transition</span>: all .<span class="number">5s</span>;</span><br><span class="line">  　<span class="attribute">-moz-transition</span>: all .<span class="number">5s</span>;</span><br><span class="line"> <span class="attribute">-webkit-transition</span>: all .<span class="number">5s</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>渐进增强（progressive enhancement）：针对低版本浏览器进行构建页面，保证最基本的功能，然后再针对高级浏览器进行效果、交互等改进和追加功能达到更好的用户体验。（从被所有浏览器支持的基本功能开始，逐步地添加那些只有新式浏览器才支持的功能，向页面添加无害于基础浏览器的额外样式和功能。当浏览器支持时，它们会自动地呈现出来并发挥作用。）</p>
+<p>优雅降级（graceful degradation）：一开始就构建完整的功能，然后再针对低版本浏览器进行兼容。但由于它们并非我们所关注的焦点，因此除了修复较 大的错误之外，其它的差异将被直接忽略。也就是以高要求，高版本为基准，向下兼容。</p>
+<p>区别：优雅降级是从复杂的现状开始，并试图减少用户体验的供给，而渐进增强则是从一个非常基础的、能够起作用的版本开始，并不断扩充，以适应未来环境的需要。</p>
+<blockquote>
+<p>进程跟线程的关系</p>
+</blockquote>
+<p>进程：是执行中一段程序，即一旦程序被载入到内存中并准备执行，它就是一个进程。进程是表示资源分配的的基本概念，又是调度运行的基本单位，是系统中的并发执行的单位。</p>
+<p>线程：单个进程中执行中每个任务就是一个线程。线程是进程中执行运算的最小单位。</p>
+<p>一个线程只能属于一个进程，但是一个进程可以拥有多个线程。多线程处理就是允许一个进程中在同一时刻执行多个任务。</p>
+<p>区别：</p>
+<ul>
+<li><p>地址空间：同一进程的线程共享本进程的地址空间，而进程之间则是独立的地址空间。</p>
+</li>
+<li><p>资源拥有：同一进程内的线程共享本进程的资源如内存、I/O、cpu等，但是进程之间的资源是独立的。</p>
+</li>
+</ul>
+<p>　　　　　一个进程崩溃后，在保护模式下不会对其他进程产生影响，但是一个线程崩溃整个进程都死掉。所以多进程要比多线程健壮。</p>
+<p>　　　　　进程切换时，消耗的资源大，效率高。所以涉及到频繁的切换时，使用线程要好于进程。同样如果要求同时进行并且又要共享某些变量的并发操作，只能用线程不能用进程</p>
+<ul>
+<li><p>执行过程：每个独立的进程程有一个程序运行的入口、顺序执行序列和程序入口。但是线程不能独立执行，必须依存在应用程序中，由应用程序提供多个线程执行控制。</p>
+</li>
+<li><p>线程是处理器调度的基本单位，但是进程不是。</p>
+</li>
+<li><p>两者均可并发执行</p>
+</li>
+</ul>
+<blockquote>
+<p><code>react</code>中的<code>jsx</code>了解</p>
+</blockquote>
+<p><code>jsx</code>就是<code>javascipt+html</code>的混合写法</p>
+<blockquote>
+<p><code>react</code>中生命周期</p>
+</blockquote>
+<ul>
+<li><p><code>componentWillMount</code>：组件将要被挂载，虚拟<code>dom</code>或者<code>react</code>元素转换成真正的<code>dom元</code>素，插入页面前执行的方法</p>
+</li>
+<li><p><code>render</code>:组件挂载过程，将<code>react</code>元素渲染成真正的dom元素，插入到页面中的过程</p>
+</li>
+<li><p><code>componentDidMount</code>:组件挂载完成，虚拟<code>dom</code></p>
+</li>
+<li><p><code>componentWillReceiveProps(newProps)</code>:组件将要接受新的属性对象,一般是父组件状态改变的时候，子组件的值也要更新。</p>
+</li>
+<li><p><code>shouldComponentUpdate(newProps,newState)</code>:组件是否要进行更新，状态发生改变的时候判断是否更新页面（状态是肯定变化了），一般来说都要更新，但是有时候不需要更新。该方法返回<code>true</code>的时候执行<code>componentWillUpdate</code>，否则不执行。两个参数：<code>newProps</code>新的属性对象，<code>newState</code>新的状态对象</p>
+</li>
+<li><p><code>componentWillUpdate</code>:组件将要更新</p>
+</li>
+<li><p><code>render</code>:重新更新</p>
+</li>
+<li><p><code>componentDidUpdate</code>:组件更新完成</p>
+</li>
+<li><p><code>componentWillUnmount</code>:组件卸载之前调用，可以清理一些定时器，或者是<code>componentDidMount</code>中手动添加的<code>dom</code>元素,避免内存泄露。</p>
+</li>
+</ul>
+<blockquote>
+<p><code>react</code>中请求接口为什么放在<code>componentDidMount</code>这个生命周期函数中?</p>
+</blockquote>
+<ul>
+<li><p><code>React</code> 下一代调和算法 <code>Fiber</code> 会通圌过开始或停止渲染的方式优化应用性能，其会影响到 <code>componenТWillMount</code> 的触发次数。对于 <code>componenТWillMount</code> 这个生命周期函数的调用次数会变得不确定，<code>React</code> 可能会多次频繁调用<code>componenТWillMount</code>。如果我们将 <code>AJAX</code> 请求放到 <code>componenТWillMount</code> 函数中，那么显而易见其会被触发多次，自然也就不是好的选择。</p>
+</li>
+<li><p>如果我们将 <code>AJAX</code> 请求放置在生命周期的其他函数中，我们并不能保证请求仅在组件挂载完毕后才会要求响应。如果我们的数据请求在组件挂载之前就完成，并且调用了setState函数将数据添加到组件状态中，对于未挂载的组件则会报错。而在 <code>componentDidMount</code> 函数中进行 <code>AJAX</code> 请求则能有效避免这个问题。</p>
+</li>
+</ul>
+<!-- >`react`中受控组件跟非受控组件的区别
+>`react`中路由方式(以及传参方式)
+>`vue`的生性周期函数(10个),active
+>`vue`的`keep-alive`
+>`vue`、`react`、`jquery`的区别
+>`react`跟`react native`的区别
+>`localstoarge`、`sessionstorage`、`cookie`的区别
+>`es6`中`promise`的了解，几种状态。方法有那些
+>`async、await`的了解，具体原理以及使用
+>`es6`中的解构，`set`以及`map`
+>`foreach`、`map`、`for...in`、`for...of`区别
+>`bind`、`call`、`apply`的区别
+>`h5`的语义化，`input`的有几种类型，
+>`input`的`autocomplete`属性
+>`css3`新增
+>`css`样式的先后顺序
+>`import`跟`link`的区别
+>`jsonp`的原理
+>`script`可以跨域的原理
+`<script>`标签的`src`属性并不被同源策略所约束，所以可以获取任何服务器上脚本并执行。
+
+>一个`div`在另一个`div`中居中的方式
+>图片上传
+>图片跟表单一起上传的方法
+>什么是闭包，有什么缺点?
+>介绍下项目：主要包括项目的搭建，路由，组件化，等
+>对dva的了解 -->
+]]></content>
+      <categories>
+        <category>前端面试题</category>
+      </categories>
+      <tags>
+        <tag>前端面试题</tag>
       </tags>
   </entry>
   <entry>
@@ -1183,113 +1290,6 @@
       </tags>
   </entry>
   <entry>
-    <title>前端面试题3</title>
-    <url>/2020/09/21/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%983/</url>
-    <content><![CDATA[<blockquote>
-<p>渐进增强跟优雅降级的区别</p>
-</blockquote>
-<p>渐进增强写法：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.transition</span>&#123;</span><br><span class="line">  <span class="attribute">-webkit-transition</span>: all .<span class="number">5s</span>;</span><br><span class="line">     <span class="attribute">-moz-transition</span>: all .<span class="number">5s</span>;</span><br><span class="line">       <span class="attribute">-o-transition</span>: all .<span class="number">5s</span>;</span><br><span class="line">          <span class="attribute">transition</span>: all .<span class="number">5s</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>优雅降级写法：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.transition</span>&#123; </span><br><span class="line">　　     <span class="attribute">transition</span>: all .<span class="number">5s</span>;</span><br><span class="line">　　  <span class="attribute">-o-transition</span>: all .<span class="number">5s</span>;</span><br><span class="line">  　<span class="attribute">-moz-transition</span>: all .<span class="number">5s</span>;</span><br><span class="line"> <span class="attribute">-webkit-transition</span>: all .<span class="number">5s</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>渐进增强（progressive enhancement）：针对低版本浏览器进行构建页面，保证最基本的功能，然后再针对高级浏览器进行效果、交互等改进和追加功能达到更好的用户体验。（从被所有浏览器支持的基本功能开始，逐步地添加那些只有新式浏览器才支持的功能，向页面添加无害于基础浏览器的额外样式和功能。当浏览器支持时，它们会自动地呈现出来并发挥作用。）</p>
-<p>优雅降级（graceful degradation）：一开始就构建完整的功能，然后再针对低版本浏览器进行兼容。但由于它们并非我们所关注的焦点，因此除了修复较 大的错误之外，其它的差异将被直接忽略。也就是以高要求，高版本为基准，向下兼容。</p>
-<p>区别：优雅降级是从复杂的现状开始，并试图减少用户体验的供给，而渐进增强则是从一个非常基础的、能够起作用的版本开始，并不断扩充，以适应未来环境的需要。</p>
-<blockquote>
-<p>进程跟线程的关系</p>
-</blockquote>
-<p>进程：是执行中一段程序，即一旦程序被载入到内存中并准备执行，它就是一个进程。进程是表示资源分配的的基本概念，又是调度运行的基本单位，是系统中的并发执行的单位。</p>
-<p>线程：单个进程中执行中每个任务就是一个线程。线程是进程中执行运算的最小单位。</p>
-<p>一个线程只能属于一个进程，但是一个进程可以拥有多个线程。多线程处理就是允许一个进程中在同一时刻执行多个任务。</p>
-<p>区别：</p>
-<ul>
-<li><p>地址空间：同一进程的线程共享本进程的地址空间，而进程之间则是独立的地址空间。</p>
-</li>
-<li><p>资源拥有：同一进程内的线程共享本进程的资源如内存、I/O、cpu等，但是进程之间的资源是独立的。</p>
-</li>
-</ul>
-<p>　　　　　一个进程崩溃后，在保护模式下不会对其他进程产生影响，但是一个线程崩溃整个进程都死掉。所以多进程要比多线程健壮。</p>
-<p>　　　　　进程切换时，消耗的资源大，效率高。所以涉及到频繁的切换时，使用线程要好于进程。同样如果要求同时进行并且又要共享某些变量的并发操作，只能用线程不能用进程</p>
-<ul>
-<li><p>执行过程：每个独立的进程程有一个程序运行的入口、顺序执行序列和程序入口。但是线程不能独立执行，必须依存在应用程序中，由应用程序提供多个线程执行控制。</p>
-</li>
-<li><p>线程是处理器调度的基本单位，但是进程不是。</p>
-</li>
-<li><p>两者均可并发执行</p>
-</li>
-</ul>
-<blockquote>
-<p><code>react</code>中的<code>jsx</code>了解</p>
-</blockquote>
-<p><code>jsx</code>就是<code>javascipt+html</code>的混合写法</p>
-<blockquote>
-<p><code>react</code>中生命周期</p>
-</blockquote>
-<ul>
-<li><p><code>componentWillMount</code>：组件将要被挂载，虚拟<code>dom</code>或者<code>react</code>元素转换成真正的<code>dom元</code>素，插入页面前执行的方法</p>
-</li>
-<li><p><code>render</code>:组件挂载过程，将<code>react</code>元素渲染成真正的dom元素，插入到页面中的过程</p>
-</li>
-<li><p><code>componentDidMount</code>:组件挂载完成，虚拟<code>dom</code></p>
-</li>
-<li><p><code>componentWillReceiveProps(newProps)</code>:组件将要接受新的属性对象,一般是父组件状态改变的时候，子组件的值也要更新。</p>
-</li>
-<li><p><code>shouldComponentUpdate(newProps,newState)</code>:组件是否要进行更新，状态发生改变的时候判断是否更新页面（状态是肯定变化了），一般来说都要更新，但是有时候不需要更新。该方法返回<code>true</code>的时候执行<code>componentWillUpdate</code>，否则不执行。两个参数：<code>newProps</code>新的属性对象，<code>newState</code>新的状态对象</p>
-</li>
-<li><p><code>componentWillUpdate</code>:组件将要更新</p>
-</li>
-<li><p><code>render</code>:重新更新</p>
-</li>
-<li><p><code>componentDidUpdate</code>:组件更新完成</p>
-</li>
-<li><p><code>componentWillUnmount</code>:组件卸载之前调用，可以清理一些定时器，或者是<code>componentDidMount</code>中手动添加的<code>dom</code>元素,避免内存泄露。</p>
-</li>
-</ul>
-<blockquote>
-<p><code>react</code>中请求接口为什么放在<code>componentDidMount</code>这个生命周期函数中?</p>
-</blockquote>
-<ul>
-<li><p><code>React</code> 下一代调和算法 <code>Fiber</code> 会通圌过开始或停止渲染的方式优化应用性能，其会影响到 <code>componenТWillMount</code> 的触发次数。对于 <code>componenТWillMount</code> 这个生命周期函数的调用次数会变得不确定，<code>React</code> 可能会多次频繁调用<code>componenТWillMount</code>。如果我们将 <code>AJAX</code> 请求放到 <code>componenТWillMount</code> 函数中，那么显而易见其会被触发多次，自然也就不是好的选择。</p>
-</li>
-<li><p>如果我们将 <code>AJAX</code> 请求放置在生命周期的其他函数中，我们并不能保证请求仅在组件挂载完毕后才会要求响应。如果我们的数据请求在组件挂载之前就完成，并且调用了setState函数将数据添加到组件状态中，对于未挂载的组件则会报错。而在 <code>componentDidMount</code> 函数中进行 <code>AJAX</code> 请求则能有效避免这个问题。</p>
-</li>
-</ul>
-<!-- >`react`中受控组件跟非受控组件的区别
->`react`中路由方式(以及传参方式)
->`vue`的生性周期函数(10个),active
->`vue`的`keep-alive`
->`vue`、`react`、`jquery`的区别
->`react`跟`react native`的区别
->`localstoarge`、`sessionstorage`、`cookie`的区别
->`es6`中`promise`的了解，几种状态。方法有那些
->`async、await`的了解，具体原理以及使用
->`es6`中的解构，`set`以及`map`
->`foreach`、`map`、`for...in`、`for...of`区别
->`bind`、`call`、`apply`的区别
->`h5`的语义化，`input`的有几种类型，
->`input`的`autocomplete`属性
->`css3`新增
->`css`样式的先后顺序
->`import`跟`link`的区别
->`jsonp`的原理
->`script`可以跨域的原理
-`<script>`标签的`src`属性并不被同源策略所约束，所以可以获取任何服务器上脚本并执行。
-
->一个`div`在另一个`div`中居中的方式
->图片上传
->图片跟表单一起上传的方法
->什么是闭包，有什么缺点?
->介绍下项目：主要包括项目的搭建，路由，组件化，等
->对dva的了解 -->
-]]></content>
-      <categories>
-        <category>前端面试题</category>
-      </categories>
-      <tags>
-        <tag>前端面试题</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>动画</title>
     <url>/2020/09/21/%E5%8A%A8%E7%94%BB/</url>
     <content><![CDATA[<p>动画：<br><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@keyframes</span> myfirst&#123;</span><br><span class="line">    <span class="selector-tag">from</span> &#123;<span class="attribute">background</span>: red;&#125;</span><br><span class="line">    <span class="selector-tag">to</span> &#123;<span class="attribute">background</span>: yellow;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@keyframes</span> myfirst&#123;</span><br><span class="line">    0%   &#123;<span class="attribute">background</span>: red;&#125;</span><br><span class="line">    25%  &#123;<span class="attribute">background</span>: yellow;&#125;</span><br><span class="line">    50%  &#123;<span class="attribute">background</span>: blue;&#125;</span><br><span class="line">    100% &#123;<span class="attribute">background</span>: green;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">    <span class="attribute">animation</span>:myfirst <span class="number">5s</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -1445,51 +1445,6 @@
       </tags>
   </entry>
   <entry>
-    <title>常见正则</title>
-    <url>/2020/09/21/%E6%AD%A3%E5%88%99/</url>
-    <content><![CDATA[<blockquote>
-<p>正整数</p>
-</blockquote>
-<p><code>let reg = /^[1-9]\d*$/</code></p>
-<blockquote>
-<p>数字、字母、数字字母组合</p>
-</blockquote>
-<p><code>let reg = /^[0-9a-zA-Z]{1,20}$/</code></p>
-]]></content>
-      <categories>
-        <category>JS</category>
-      </categories>
-      <tags>
-        <tag>Js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>深浅拷贝</title>
-    <url>/2020/09/21/%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D/</url>
-    <content><![CDATA[<h1 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h1><blockquote>
-<p>浅拷贝能拷贝所有深层次的对象，但是拷贝后的深层次的对象与元对象还是引用的是同一个堆内存。所以改变拷贝的新的深层次的对象，原来的也会改变。但是不是引用类型的不受影响。</p>
-</blockquote>
-<blockquote>
-<p>Object.assign()也可以实现浅复制</p>
-</blockquote>
-<figure class="highlight haxe"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 浅克隆函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">shallowClone</span></span>(o) &#123;</span><br><span class="line">  const obj = &#123;&#125;;</span><br><span class="line">  <span class="keyword">for</span> ( let i <span class="keyword">in</span> o) &#123;</span><br><span class="line">    obj[i] = o[i];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> obj;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 被克隆对象</span></span><br><span class="line">const oldObj = &#123;</span><br><span class="line">  a: <span class="type">1</span>,</span><br><span class="line">  b: <span class="type"></span>[ <span class="string">'e'</span>, <span class="string">'f'</span>, <span class="string">'g'</span> ],</span><br><span class="line">  c: <span class="type"></span>&#123; h: <span class="type"></span>&#123; i: <span class="type">2 </span>&#125; &#125;</span><br><span class="line">&#125;;</span><br><span class="line">const <span class="keyword">new</span><span class="type">Obj</span> = shallowClone(oldObj);</span><br><span class="line">console.log(<span class="keyword">new</span><span class="type">Obj</span>.c.h, oldObj.c.h); <span class="comment">// &#123; i: 2 &#125; &#123; i: 2 &#125;</span></span><br><span class="line">console.log(oldObj.c.h === <span class="keyword">new</span><span class="type">Obj</span>.c.h); <span class="comment">// true</span></span><br><span class="line"><span class="comment">// 改变</span></span><br><span class="line"><span class="keyword">new</span><span class="type">Obj</span>.c.h = &#123;i:<span class="type">5</span>&#125;</span><br><span class="line">console.log(<span class="keyword">new</span><span class="type">Obj</span>.c.h, oldObj.c.h); <span class="comment">// &#123;i: 5&#125; &#123;i: 5&#125;</span></span><br><span class="line"><span class="keyword">new</span><span class="type">Obj</span>.a = <span class="number">2</span></span><br><span class="line">console.log(<span class="keyword">new</span><span class="type">Obj</span>.a, oldObj.a); <span class="comment">// 2 1</span></span><br><span class="line"><span class="keyword">new</span><span class="type">Obj</span>.b[<span class="number">0</span>] = <span class="string">'huang'</span></span><br><span class="line">console.log(<span class="keyword">new</span><span class="type">Obj</span>.b, oldObj.b); <span class="comment">// ["huang", "f", "g"] ["huang", "f", "g"]</span></span><br></pre></td></tr></table></figure>
-<h1 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h1><h2 id="JSON-parse方法"><a href="#JSON-parse方法" class="headerlink" title="JSON.parse方法"></a>JSON.parse方法</h2><blockquote>
-<p>使用<code>JSON.parse</code>跟<code>JSON.stringify</code>这两个方法可以实现深拷贝。</p>
-</blockquote>
-<figure class="highlight haxe"><table><tr><td class="code"><pre><span class="line">const <span class="keyword">new</span><span class="type">Obj</span> = JSON.parse(JSON.stringify(oldObj));</span><br><span class="line"><span class="comment">//例子</span></span><br><span class="line">const oldObj = &#123;</span><br><span class="line">  a: <span class="type">1</span>,</span><br><span class="line">  b: <span class="type"></span>[ <span class="string">'e'</span>, <span class="string">'f'</span>, <span class="string">'g'</span> ],</span><br><span class="line">  c: <span class="type"></span>&#123; h: <span class="type"></span>&#123; i: <span class="type">2 </span>&#125; &#125;</span><br><span class="line">&#125;;</span><br><span class="line">const <span class="keyword">new</span><span class="type">Obj</span> = JSON.parse(JSON.stringify(oldObj))</span><br><span class="line">console.log(<span class="keyword">new</span><span class="type">Obj</span>.c.h, oldObj.c.h); <span class="comment">// &#123;i:2&#125; &#123;i:2&#125;</span></span><br><span class="line">console.log(oldObj.c.h === <span class="keyword">new</span><span class="type">Obj</span>.c.h); <span class="comment">//false</span></span><br><span class="line"><span class="keyword">new</span><span class="type">Obj</span>.c.h = &#123;i:<span class="type">5</span>&#125;</span><br><span class="line">console.log(<span class="keyword">new</span><span class="type">Obj</span>.c.h, oldObj.c.h); <span class="comment">// &#123;i:5&#125; &#123;i:2&#125;</span></span><br><span class="line"><span class="keyword">new</span><span class="type">Obj</span>.a = <span class="number">2</span></span><br><span class="line">console.log(<span class="keyword">new</span><span class="type">Obj</span>.a, oldObj.a); <span class="comment">// 2  1</span></span><br><span class="line"><span class="keyword">new</span><span class="type">Obj</span>.b[<span class="number">0</span>] = <span class="string">'huang'</span></span><br><span class="line">console.log(<span class="keyword">new</span><span class="type">Obj</span>.b, oldObj.b); <span class="comment">// [ 'huang', 'f', 'g' ] [ 'e', 'f', 'g' ]</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>缺点</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 构造函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">person</span>(<span class="params">pname</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = pname;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> Messi = <span class="keyword">new</span> person(<span class="string">'Messi'</span>);</span><br><span class="line"><span class="comment">// 函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">say</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'hi'</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">const</span> oldObj = &#123;</span><br><span class="line">  a: say,</span><br><span class="line">  b: <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">1</span>),</span><br><span class="line">  c: <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'ab+c'</span>, <span class="string">'i'</span>),</span><br><span class="line">  d: Messi</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">const</span> newObj = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(oldObj));</span><br><span class="line"><span class="comment">// 无法复制函数</span></span><br><span class="line"><span class="built_in">console</span>.log(newObj.a, oldObj.a); <span class="comment">// undefined [Function: say]</span></span><br><span class="line"><span class="comment">// 稀疏数组复制错误</span></span><br><span class="line"><span class="built_in">console</span>.log(newObj.b[<span class="number">0</span>], oldObj.b[<span class="number">0</span>]); <span class="comment">// null undefined</span></span><br><span class="line"><span class="comment">// 无法复制正则对象</span></span><br><span class="line"><span class="built_in">console</span>.log(newObj.c, oldObj.c); <span class="comment">// &#123;&#125; /ab+c/i</span></span><br><span class="line"><span class="comment">// 构造函数指向错误</span></span><br><span class="line"><span class="built_in">console</span>.log(newObj.d.constructor, oldObj.d.constructor); <span class="comment">// [Function: Object] [Function: person]</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>JS</category>
-      </categories>
-      <tags>
-        <tag>Js</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>踩坑记录</title>
     <url>/2020/09/21/%E9%87%87%E5%9D%91%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<p>2019-11-16，今天突然觉醒了，有了学习的念头，对我来说不容易，立一个flag，从今天开始，记录每天自己采的坑，只为记录自己的采坑记录，不论难易程度。</p>
@@ -1556,6 +1511,51 @@
       </categories>
       <tags>
         <tag>记录篇</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>深浅拷贝</title>
+    <url>/2020/09/21/%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D/</url>
+    <content><![CDATA[<h1 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h1><blockquote>
+<p>浅拷贝能拷贝所有深层次的对象，但是拷贝后的深层次的对象与元对象还是引用的是同一个堆内存。所以改变拷贝的新的深层次的对象，原来的也会改变。但是不是引用类型的不受影响。</p>
+</blockquote>
+<blockquote>
+<p>Object.assign()也可以实现浅复制</p>
+</blockquote>
+<figure class="highlight haxe"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 浅克隆函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">shallowClone</span></span>(o) &#123;</span><br><span class="line">  const obj = &#123;&#125;;</span><br><span class="line">  <span class="keyword">for</span> ( let i <span class="keyword">in</span> o) &#123;</span><br><span class="line">    obj[i] = o[i];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> obj;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 被克隆对象</span></span><br><span class="line">const oldObj = &#123;</span><br><span class="line">  a: <span class="type">1</span>,</span><br><span class="line">  b: <span class="type"></span>[ <span class="string">'e'</span>, <span class="string">'f'</span>, <span class="string">'g'</span> ],</span><br><span class="line">  c: <span class="type"></span>&#123; h: <span class="type"></span>&#123; i: <span class="type">2 </span>&#125; &#125;</span><br><span class="line">&#125;;</span><br><span class="line">const <span class="keyword">new</span><span class="type">Obj</span> = shallowClone(oldObj);</span><br><span class="line">console.log(<span class="keyword">new</span><span class="type">Obj</span>.c.h, oldObj.c.h); <span class="comment">// &#123; i: 2 &#125; &#123; i: 2 &#125;</span></span><br><span class="line">console.log(oldObj.c.h === <span class="keyword">new</span><span class="type">Obj</span>.c.h); <span class="comment">// true</span></span><br><span class="line"><span class="comment">// 改变</span></span><br><span class="line"><span class="keyword">new</span><span class="type">Obj</span>.c.h = &#123;i:<span class="type">5</span>&#125;</span><br><span class="line">console.log(<span class="keyword">new</span><span class="type">Obj</span>.c.h, oldObj.c.h); <span class="comment">// &#123;i: 5&#125; &#123;i: 5&#125;</span></span><br><span class="line"><span class="keyword">new</span><span class="type">Obj</span>.a = <span class="number">2</span></span><br><span class="line">console.log(<span class="keyword">new</span><span class="type">Obj</span>.a, oldObj.a); <span class="comment">// 2 1</span></span><br><span class="line"><span class="keyword">new</span><span class="type">Obj</span>.b[<span class="number">0</span>] = <span class="string">'huang'</span></span><br><span class="line">console.log(<span class="keyword">new</span><span class="type">Obj</span>.b, oldObj.b); <span class="comment">// ["huang", "f", "g"] ["huang", "f", "g"]</span></span><br></pre></td></tr></table></figure>
+<h1 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h1><h2 id="JSON-parse方法"><a href="#JSON-parse方法" class="headerlink" title="JSON.parse方法"></a>JSON.parse方法</h2><blockquote>
+<p>使用<code>JSON.parse</code>跟<code>JSON.stringify</code>这两个方法可以实现深拷贝。</p>
+</blockquote>
+<figure class="highlight haxe"><table><tr><td class="code"><pre><span class="line">const <span class="keyword">new</span><span class="type">Obj</span> = JSON.parse(JSON.stringify(oldObj));</span><br><span class="line"><span class="comment">//例子</span></span><br><span class="line">const oldObj = &#123;</span><br><span class="line">  a: <span class="type">1</span>,</span><br><span class="line">  b: <span class="type"></span>[ <span class="string">'e'</span>, <span class="string">'f'</span>, <span class="string">'g'</span> ],</span><br><span class="line">  c: <span class="type"></span>&#123; h: <span class="type"></span>&#123; i: <span class="type">2 </span>&#125; &#125;</span><br><span class="line">&#125;;</span><br><span class="line">const <span class="keyword">new</span><span class="type">Obj</span> = JSON.parse(JSON.stringify(oldObj))</span><br><span class="line">console.log(<span class="keyword">new</span><span class="type">Obj</span>.c.h, oldObj.c.h); <span class="comment">// &#123;i:2&#125; &#123;i:2&#125;</span></span><br><span class="line">console.log(oldObj.c.h === <span class="keyword">new</span><span class="type">Obj</span>.c.h); <span class="comment">//false</span></span><br><span class="line"><span class="keyword">new</span><span class="type">Obj</span>.c.h = &#123;i:<span class="type">5</span>&#125;</span><br><span class="line">console.log(<span class="keyword">new</span><span class="type">Obj</span>.c.h, oldObj.c.h); <span class="comment">// &#123;i:5&#125; &#123;i:2&#125;</span></span><br><span class="line"><span class="keyword">new</span><span class="type">Obj</span>.a = <span class="number">2</span></span><br><span class="line">console.log(<span class="keyword">new</span><span class="type">Obj</span>.a, oldObj.a); <span class="comment">// 2  1</span></span><br><span class="line"><span class="keyword">new</span><span class="type">Obj</span>.b[<span class="number">0</span>] = <span class="string">'huang'</span></span><br><span class="line">console.log(<span class="keyword">new</span><span class="type">Obj</span>.b, oldObj.b); <span class="comment">// [ 'huang', 'f', 'g' ] [ 'e', 'f', 'g' ]</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>缺点</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 构造函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">person</span>(<span class="params">pname</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = pname;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> Messi = <span class="keyword">new</span> person(<span class="string">'Messi'</span>);</span><br><span class="line"><span class="comment">// 函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">say</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'hi'</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">const</span> oldObj = &#123;</span><br><span class="line">  a: say,</span><br><span class="line">  b: <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">1</span>),</span><br><span class="line">  c: <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'ab+c'</span>, <span class="string">'i'</span>),</span><br><span class="line">  d: Messi</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">const</span> newObj = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(oldObj));</span><br><span class="line"><span class="comment">// 无法复制函数</span></span><br><span class="line"><span class="built_in">console</span>.log(newObj.a, oldObj.a); <span class="comment">// undefined [Function: say]</span></span><br><span class="line"><span class="comment">// 稀疏数组复制错误</span></span><br><span class="line"><span class="built_in">console</span>.log(newObj.b[<span class="number">0</span>], oldObj.b[<span class="number">0</span>]); <span class="comment">// null undefined</span></span><br><span class="line"><span class="comment">// 无法复制正则对象</span></span><br><span class="line"><span class="built_in">console</span>.log(newObj.c, oldObj.c); <span class="comment">// &#123;&#125; /ab+c/i</span></span><br><span class="line"><span class="comment">// 构造函数指向错误</span></span><br><span class="line"><span class="built_in">console</span>.log(newObj.d.constructor, oldObj.d.constructor); <span class="comment">// [Function: Object] [Function: person]</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>JS</category>
+      </categories>
+      <tags>
+        <tag>Js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>常见正则</title>
+    <url>/2020/09/21/%E6%AD%A3%E5%88%99/</url>
+    <content><![CDATA[<blockquote>
+<p>正整数</p>
+</blockquote>
+<p><code>let reg = /^[1-9]\d*$/</code></p>
+<blockquote>
+<p>数字、字母、数字字母组合</p>
+</blockquote>
+<p><code>let reg = /^[0-9a-zA-Z]{1,20}$/</code></p>
+]]></content>
+      <categories>
+        <category>JS</category>
+      </categories>
+      <tags>
+        <tag>Js</tag>
       </tags>
   </entry>
   <entry>
@@ -1633,6 +1633,33 @@
       </categories>
       <tags>
         <tag>Js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>模块一 es6与ts</title>
+    <url>/2020/09/23/%E5%A4%A7%E5%89%8D%E7%AB%AF/part1/%E6%A8%A1%E5%9D%97%E4%B8%80%20-%20es6%E4%B8%8Ets/</url>
+    <content><![CDATA[<h1 id="es6"><a href="#es6" class="headerlink" title="es6"></a>es6</h1><h2 id="闭包就是利用函数作用域摆脱全局作用域带来的影响"><a href="#闭包就是利用函数作用域摆脱全局作用域带来的影响" class="headerlink" title="闭包就是利用函数作用域摆脱全局作用域带来的影响"></a>闭包就是利用函数作用域摆脱全局作用域带来的影响</h2><h2 id="let其实也是闭包"><a href="#let其实也是闭包" class="headerlink" title="let其实也是闭包"></a>let其实也是闭包</h2><h2 id="for循环其实有两个作用域"><a href="#for循环其实有两个作用域" class="headerlink" title="for循环其实有两个作用域"></a>for循环其实有两个作用域</h2><figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">for (<span class="name">let</span> i = <span class="number">0</span><span class="comment">;i &lt; 3; i++)&#123;</span></span><br><span class="line">    let i = 'foo'</span><br><span class="line">    console.log(<span class="name">i</span>) // foo foo foo</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 相当于</span><br><span class="line">let i = <span class="number">0</span><span class="comment">;</span></span><br><span class="line"></span><br><span class="line">if (<span class="name">i</span> &lt; <span class="number">3</span>) &#123;</span><br><span class="line">    let i = 'foo'</span><br><span class="line">    console.log(<span class="name">i</span>)</span><br><span class="line">&#125;</span><br><span class="line">i++<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">if (<span class="name">i</span> &lt; <span class="number">3</span>) &#123;</span><br><span class="line">    let i = 'foo'</span><br><span class="line">    console.log(<span class="name">i</span>)</span><br><span class="line">&#125;</span><br><span class="line">i++<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">if (<span class="name">i</span> &lt; <span class="number">3</span>) &#123;</span><br><span class="line">    let i = 'foo'</span><br><span class="line">    console.log(<span class="name">i</span>)</span><br><span class="line">&#125;</span><br><span class="line">i++<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<h2 id="数组结构，根据位置结构"><a href="#数组结构，根据位置结构" class="headerlink" title="数组结构，根据位置结构"></a>数组结构，根据位置结构</h2><figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> [a,b,<span class="built_in">c</span>] = arr </span><br><span class="line">console.log(a,b,<span class="built_in">c</span>)<span class="comment">// 123</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> [,,<span class="built_in">c</span>] = arr</span><br><span class="line">console.log(<span class="built_in">c</span>) <span class="comment">//3</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> [a,...rest] = arr</span><br><span class="line">console.log(rest) <span class="comment">// [2,3]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> [a,b,<span class="built_in">c</span>,d] = arr</span><br><span class="line">console.log(d) <span class="comment">// undefined</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> [a,b,<span class="built_in">c</span>,d = <span class="string">"9"</span>] = arr</span><br><span class="line">console.log(d) <span class="comment">// 9  设置默认值</span></span><br></pre></td></tr></table></figure>
+<h2 id="对象的结构，按照变量名结构"><a href="#对象的结构，按照变量名结构" class="headerlink" title="对象的结构，按照变量名结构"></a>对象的结构，按照变量名结构</h2><figure class="highlight autoit"><table><tr><td class="code"><pre><span class="line">let obj = &#123;name: <span class="string">'hjj'</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123; name: <span class="built_in">objname</span> = <span class="string">"defalut"</span> &#125; = obj</span><br><span class="line"><span class="keyword">const</span> name= <span class="string">"hh"</span></span><br><span class="line"></span><br><span class="line">console.<span class="built_in">log</span>(<span class="built_in">objname</span>) // <span class="built_in">objname</span>   别名、并且可以设置默认值</span><br></pre></td></tr></table></figure>
+<h2 id="object-defineProperty"><a href="#object-defineProperty" class="headerlink" title="object.defineProperty"></a>object.defineProperty</h2><p>object.defineProperty是劫持数据，对原本的属性或者方法进行重载，并且需要使用object.keys对对象进项遍历操作。对数组变化不方便，使用proxy更简单。具体之后自行百度</p>
+<h2 id="proxy"><a href="#proxy" class="headerlink" title="proxy"></a>proxy</h2><figure class="highlight qml"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> obj =&#123;</span><br><span class="line">    <span class="attribute">name</span>:<span class="string">'hhh'</span>,</span><br><span class="line">    <span class="attribute">age</span>: <span class="number">7</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> proxy = <span class="keyword">new</span> <span class="built_in">Proxy</span>(obj,&#123;</span><br><span class="line">    get(target, <span class="keyword">property</span><span class="string"></span>, value)&#123;</span><br><span class="line">        <span class="keyword">return</span> target[<span class="keyword">property</span><span class="string">]</span></span><br><span class="line">    &#125;, </span><br><span class="line">    set(target, <span class="keyword">property</span><span class="string"></span>, value)&#123;</span><br><span class="line">        <span class="keyword">return</span> target[<span class="keyword">property</span><span class="string">] </span>= value</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(proxy.name = <span class="string">"1"</span>) <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(proxy.age) <span class="comment">// 7</span></span><br></pre></td></tr></table></figure>
+<h2 id="class"><a href="#class" class="headerlink" title="class"></a>class</h2><figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 只要类的方法没有加static， 那么方法里边的this就指的是实例，否则就是指的是类。</span></span><br><span class="line"><span class="comment">// 静态方法只能通过类调用，不能通过实例调用。eg:Foo.bar()</span></span><br><span class="line"><span class="keyword">class</span> <span class="title">Foo</span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="title">bar</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">        <span class="keyword">this</span>.baz();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="title">baz</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">        console.log(<span class="string">'hello'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    baz() &#123;</span><br><span class="line">      console.log(<span class="string">'world'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line">Foo.bar() <span class="comment">// hello</span></span><br></pre></td></tr></table></figure>
+<h2 id="reflect"><a href="#reflect" class="headerlink" title="reflect"></a>reflect</h2><p>reflect其实就是对对象的API进行统一操作的，是proxy第二个参数没有设置的时候，默认会设置reflect.get()方法</p>
+<h2 id="set"><a href="#set" class="headerlink" title="set"></a>set</h2><figure class="highlight processing"><table><tr><td class="code"><pre><span class="line">let s = <span class="keyword">new</span> Set()</span><br><span class="line">s.<span class="built_in">add</span>(<span class="number">1</span>).<span class="built_in">add</span>(<span class="number">2</span>).<span class="built_in">add</span>(<span class="number">3</span>)</span><br><span class="line">console.<span class="built_in">log</span>(s) <span class="comment">// Set(3) &#123; 1, 2, 3 &#125;</span></span><br><span class="line">console.<span class="built_in">log</span>(s.has(<span class="number">2</span>)) <span class="comment">// true</span></span><br><span class="line">console.<span class="built_in">log</span>(s.has(<span class="number">4</span>)) <span class="comment">// false</span></span><br><span class="line">console.<span class="built_in">log</span>(s.<span class="built_in">size</span>) <span class="comment">// 3</span></span><br><span class="line">console.<span class="built_in">log</span>(s.delete(<span class="number">4</span>)) <span class="comment">// false</span></span><br><span class="line">console.<span class="built_in">log</span>(s.delete(<span class="number">2</span>)) <span class="comment">// true  参数为要删除的元素</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(i of s) &#123;</span><br><span class="line">    console.<span class="built_in">log</span>(i) <span class="comment">// 1  3</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> res = [... <span class="keyword">new</span> Set(s)]</span><br><span class="line">console.<span class="built_in">log</span>(res) <span class="comment">// [1,3]</span></span><br><span class="line">console.<span class="built_in">log</span>(<span class="keyword">Array</span>.from(s)) <span class="comment">// [1,3]</span></span><br></pre></td></tr></table></figure>
+<h2 id="map"><a href="#map" class="headerlink" title="map"></a>map</h2><p>map结构的数据跟对象的结构一样，都是存储的键值对，但是对象中的键只能是字符串，但是map结构的键不仅仅局限于字符串</p>
+<h2 id="symbol"><a href="#symbol" class="headerlink" title="symbol"></a>symbol</h2><figure class="highlight sqf"><table><tr><td class="code"><pre><span class="line">let <span class="built_in">name</span> = Symbol()</span><br><span class="line">let person =  &#123;</span><br><span class="line">    [<span class="built_in">name</span>]: <span class="string">"hjj"</span>,</span><br><span class="line">    <span class="built_in">say</span> () &#123;</span><br><span class="line">        console.<span class="built_in">log</span>(this[<span class="built_in">name</span>])</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console.<span class="built_in">log</span>(person[Symbol()]) <span class="comment">// undefined</span></span><br><span class="line">console.<span class="built_in">log</span>(person[<span class="built_in">name</span>]) <span class="comment">// hjj</span></span><br><span class="line">person.<span class="built_in">say</span>() <span class="comment">// hjj</span></span><br></pre></td></tr></table></figure>
+<h2 id="for-…-of"><a href="#for-…-of" class="headerlink" title="for … of"></a>for … of</h2><p>forEach、map 都不可以跳出循环</p>
+<h2 id="字符串补长度"><a href="#字符串补长度" class="headerlink" title="字符串补长度"></a>字符串补长度</h2><figure class="highlight jboss-cli"><table><tr><td class="code"><pre><span class="line">padStart       <span class="string">"0.1"</span><span class="string">.padStart</span><span class="params">(5,0)</span> <span class="string">//</span> 000.1</span><br><span class="line">padEnd        <span class="string">"0.1"</span><span class="string">.padEnd</span><span class="params">(5,0)</span> <span class="string">//</span> 0.100</span><br></pre></td></tr></table></figure>
+<h2 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h2><figure class="highlight lua"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">makeIterator</span> <span class="params">(arr)</span></span> &#123;</span><br><span class="line">    let index = <span class="number">0</span></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        <span class="built_in">next</span>: <span class="function"><span class="keyword">function</span> <span class="params">()</span></span> &#123;</span><br><span class="line">            <span class="keyword">return</span> index &lt; arr.length ? &#123;value:arr[index ++],done:<span class="literal">false</span>&#125; : &#123;done: <span class="literal">true</span>&#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">let arr = makeIterator([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</span><br><span class="line">console.<span class="built_in">log</span>(arr.<span class="built_in">next</span>()) // &#123; value: <span class="number">1</span>, done: <span class="literal">false</span> &#125;</span><br><span class="line">console.<span class="built_in">log</span>(arr.<span class="built_in">next</span>()) // &#123; value: <span class="number">2</span>, done: <span class="literal">false</span> &#125;</span><br><span class="line">console.<span class="built_in">log</span>(arr.<span class="built_in">next</span>()) // &#123; value: <span class="number">3</span>, done: <span class="literal">false</span> &#125;</span><br><span class="line">console.<span class="built_in">log</span>(arr.<span class="built_in">next</span>()) // &#123; done: <span class="literal">true</span> &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="生成器"><a href="#生成器" class="headerlink" title="生成器"></a>生成器</h2><p>简单来说，生成器（Generator）就是一个自带迭代器（Iterator）的函数。<br><figure class="highlight lua"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> * <span class="title">fn</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">yield</span> <span class="number">1</span>;</span><br><span class="line">    <span class="built_in">yield</span> <span class="number">2</span>;</span><br><span class="line">    <span class="built_in">yield</span> <span class="number">3</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let it = fn();</span><br><span class="line">console.<span class="built_in">log</span>(it.<span class="built_in">next</span>()); // &#123;value: <span class="number">1</span>, done: <span class="literal">false</span>&#125;</span><br><span class="line">console.<span class="built_in">log</span>(it.<span class="built_in">next</span>()); // &#123;value: <span class="number">2</span>, done: <span class="literal">false</span>&#125;</span><br><span class="line">console.<span class="built_in">log</span>(it.<span class="built_in">next</span>()); // &#123;value: <span class="number">3</span>, done: <span class="literal">false</span>&#125;</span><br><span class="line">console.<span class="built_in">log</span>(it.<span class="built_in">next</span>()); // &#123;value: undefined, done: <span class="literal">true</span>&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="promise"><a href="#promise" class="headerlink" title="promise"></a>promise</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = <span class="number">100</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">main</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    foo = foo + <span class="keyword">await</span> <span class="built_in">Promise</span>.resolve(<span class="number">10</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'main'</span>, foo)</span><br><span class="line">&#125;</span><br><span class="line">main()</span><br><span class="line"></span><br><span class="line">foo++</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'foo'</span>, foo)</span><br><span class="line"></span><br><span class="line"><span class="comment">// foo 101</span></span><br><span class="line"><span class="comment">// main 110</span></span><br></pre></td></tr></table></figure>
+<p>理解：为什么main的时候输出不是111呢，在执行main函数的时候，还没有执行到await的时候都是同步执行的，也就是说await之前的foo还是同步的是100，还没执行到foo++，所以输出是110.</p>
+<h1 id="javascript异步编程"><a href="#javascript异步编程" class="headerlink" title="javascript异步编程"></a>javascript异步编程</h1><h1 id="ts"><a href="#ts" class="headerlink" title="ts"></a>ts</h1>]]></content>
+      <categories>
+        <category>大前端</category>
+      </categories>
+      <tags>
+        <tag>大前端</tag>
       </tags>
   </entry>
 </search>
