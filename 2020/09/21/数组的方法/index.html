@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="coder">
 <meta property="og:description" content="前端数组方法使用">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-09-21T12:56:33.789Z">
+<meta property="og:updated_time" content="2020-10-21T12:15:21.832Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数组的方法">
 <meta name="twitter:description" content="前端数组方法使用">
@@ -417,6 +417,22 @@
             
 
             
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-10-21 20:15:21" itemprop="dateModified" datetime="2020-10-21T20:15:21+08:00">2020-10-21</time>
+              
+            
           </span>
 
           
@@ -497,10 +513,11 @@
 </ul>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">let</span> <span class="string">arr</span> <span class="string">=</span> <span class="string">[11,22,33,44]</span></span><br><span class="line"><span class="string">let</span> <span class="string">arrCopy</span> <span class="string">=</span> <span class="string">arr.concat([55,66])</span></span><br><span class="line"><span class="string">console.log(arr,arrCopy)</span></span><br><span class="line"><span class="string">//</span> <span class="string">(4)</span> <span class="string">[11,</span> <span class="number">22</span><span class="string">,</span> <span class="number">33</span><span class="string">,</span> <span class="number">44</span><span class="string">]</span> <span class="string">(6)</span> <span class="string">[11,</span> <span class="number">22</span><span class="string">,</span> <span class="number">33</span><span class="string">,</span> <span class="number">44</span><span class="string">,</span> <span class="number">55</span><span class="string">,</span> <span class="number">66</span><span class="string">]</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>copyWithin() 方法用于从数组的指定位置拷贝元素到数组的另一个指定位置中。</p>
-</li>
-<li><p>join(separator):将数组转换为字符串，接受一个参数，该参数为分割符，默认使用逗号。(一维数组)</p>
-</li>
+<li>copyWithin() 方法用于从数组的指定位置拷贝元素到数组的另一个指定位置中。<br>例子：复制数组索引3-4（4）的元素到数组索引为1的位置</li>
+</ul>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>].copyWithin(<span class="number">1</span>,<span class="number">3</span>,<span class="number">4</span>) <span class="comment">// [1, 4, 3, 4, 5]</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>join(separator):将数组转换为字符串，接受一个参数，该参数为分割符，默认使用逗号。(一维数组)</li>
 </ul>
 <figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.<span class="keyword">log</span>(arr.<span class="keyword">join</span>(<span class="string">'-'</span>))<span class="comment">//11-22-33-44</span></span><br></pre></td></tr></table></figure>
 <p>通过join()方法可以实现重复字符串，只需传入字符串以及重复的次数，就能返回重复后的字符串，函数如下：</p>
@@ -516,7 +533,7 @@
 </li>
 <li><p>unshift():在数组的初始位置添加一个元素，返回的是数组的长度</p>
 </li>
-<li><p>shift():在数组的出事位置删除一个元素，返回的是添加的元素，如果数组为空则返回 <code>undefined</code></p>
+<li><p>shift():在数组的初始位置删除一个元素，返回的是删除的元素，如果数组为空则返回 <code>undefined</code></p>
 </li>
 <li><p>sort()：按升序排列数组项——即最小的值位于最前面，最大的值排在最后面。</p>
 </li>
@@ -664,8 +681,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/09/21/前端面试题3/" rel="next" title="前端面试题3">
-                <i class="fa fa-chevron-left"></i> 前端面试题3
+              <a href="/2020/09/21/深浅拷贝/" rel="next" title="深浅拷贝">
+                <i class="fa fa-chevron-left"></i> 深浅拷贝
               </a>
             
           </div>
@@ -674,8 +691,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/09/21/深浅拷贝/" rel="prev" title="深浅拷贝">
-                深浅拷贝 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/09/21/动画/" rel="prev" title="动画">
+                动画 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
