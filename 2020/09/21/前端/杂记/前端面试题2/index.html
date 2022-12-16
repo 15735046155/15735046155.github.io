@@ -1,0 +1,1841 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="前端面试常见题">
+<meta name="keywords" content="前端面试题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端面试题2">
+<meta property="og:url" content="http://yoursite.com/2020/09/21/前端/杂记/前端面试题2/index.html">
+<meta property="og:site_name" content="coder">
+<meta property="og:description" content="前端面试常见题">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/images/mianshijiqiao/sanlanbuju.png">
+<meta property="og:image" content="http://yoursite.com/images/mianshijiqiao/gaodubuding.png">
+<meta property="og:image" content="http://yoursite.com/images/mianshijiqiao/buhuo1.png">
+<meta property="og:image" content="http://yoursite.com/images/mianshijiqiao/zidingyi.png">
+<meta property="og:image" content="http://yoursite.com/images/mianshijiqiao/instanceof.png">
+<meta property="og:image" content="http://yoursite.com/images/mianshijiqiao/gouzao1.png">
+<meta property="og:image" content="http://yoursite.com/images/mianshijiqiao/gouzao2.png">
+<meta property="og:image" content="http://yoursite.com/images/mianshijiqiao/yuanxinglian1.png">
+<meta property="og:image" content="http://yoursite.com/images/mianshijiqiao/yuanxinglian2.png">
+<meta property="og:image" content="http://yoursite.com/images/mianshijiqiao/yuanxinglian3.png">
+<meta property="og:image" content="http://yoursite.com/images/mianshijiqiao/zuhe1.png">
+<meta property="og:image" content="http://yoursite.com/images/mianshijiqiao/zuhe1.1.png">
+<meta property="og:image" content="http://yoursite.com/images/mianshijiqiao/youhua1.png">
+<meta property="og:image" content="http://yoursite.com/images/mianshijiqiao/youhua1.1.png">
+<meta property="og:image" content="http://yoursite.com/images/mianshijiqiao/zuizhong.png">
+<meta property="og:updated_time" content="2021-12-30T08:37:07.392Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端面试题2">
+<meta name="twitter:description" content="前端面试常见题">
+<meta name="twitter:image" content="http://yoursite.com/images/mianshijiqiao/sanlanbuju.png">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2020/09/21/前端/杂记/前端面试题2/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>前端面试题2 | coder</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://15735046155.github.io/" class="github-corner" aria-label="View source on GitHub"><svg width="87" height="87" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">coder</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/21/前端/杂记/前端面试题2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="只有极其努力，才能看起来毫不费力。">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/杂记/one.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="coder">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">前端面试题2
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-09-21 20:56:33" itemprop="dateCreated datePublished" datetime="2020-09-21T20:56:33+08:00">2020-09-21</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2021-12-30 16:37:07" itemprop="dateModified" datetime="2021-12-30T16:37:07+08:00">2021-12-30</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端面试题/" itemprop="url" rel="index"><span itemprop="name">前端面试题</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+            <div class="post-description">前端面试常见题</div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="一面"><a href="#一面" class="headerlink" title="一面"></a>一面</h1><h2 id="页面布局类"><a href="#页面布局类" class="headerlink" title="页面布局类"></a>页面布局类</h2><p>1.题目：假设高度已知，请写出三栏布局，其中左栏、右栏宽度各为300px，中间自适应。</p>
+<p><code>float、position、flex、table、grid</code>五中解决方案</p>
+<p>首先设置下整体样式</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">    *&#123;</span><br><span class="line">        margin: 0;</span><br><span class="line">        padding: 0;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="selector-class">.layout</span>&#123;</span></span><br><span class="line">        margin-top: 20px;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="selector-class">.layout</span> <span class="selector-tag">article</span> <span class="selector-tag">div</span>&#123;</span></span><br><span class="line">        min-height: 100px;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>浮动解决方案</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">section</span> <span class="attr">class</span>=<span class="string">"layout float"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">style</span> <span class="attr">media</span>=<span class="string">"screen"</span>&gt;</span></span><br><span class="line"><span class="css">            <span class="selector-class">.layout</span><span class="selector-class">.float</span> <span class="selector-class">.left</span>&#123;</span></span><br><span class="line">                float: left;</span><br><span class="line">                width: 300px;</span><br><span class="line">                background-color: red;</span><br><span class="line">            &#125;</span><br><span class="line"><span class="css">            <span class="selector-class">.layout</span><span class="selector-class">.float</span> <span class="selector-class">.right</span>&#123;</span></span><br><span class="line">                float: right;</span><br><span class="line">                width: 300px;</span><br><span class="line">                background-color: blue;</span><br><span class="line">            &#125;</span><br><span class="line"><span class="css">            <span class="selector-class">.layout</span><span class="selector-class">.float</span> <span class="selector-class">.center</span>&#123;</span></span><br><span class="line">                background-color: yellow;</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">article</span> <span class="attr">class</span>=<span class="string">"left-right-center"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"center"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">h1</span>&gt;</span>浮动解决方案<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">                1.这是三栏布局中间部分 浮动解决方案</span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">article</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>绝对定位解决方案</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">section</span> <span class="attr">class</span>=<span class="string">"layout absolute"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">style</span> <span class="attr">media</span>=<span class="string">"screen"</span>&gt;</span></span><br><span class="line"><span class="css">            <span class="selector-class">.layout</span><span class="selector-class">.absolute</span> <span class="selector-class">.left-right-center</span>&gt;<span class="selector-tag">div</span>&#123;</span></span><br><span class="line">                position: absolute;</span><br><span class="line">            &#125;</span><br><span class="line"><span class="css">            <span class="selector-class">.layout</span><span class="selector-class">.absolute</span> <span class="selector-class">.left</span>&#123;</span></span><br><span class="line">                left: 0;</span><br><span class="line">                width: 300px;</span><br><span class="line">                background-color: red;</span><br><span class="line">            &#125;</span><br><span class="line"><span class="css">            <span class="selector-class">.layout</span><span class="selector-class">.absolute</span> <span class="selector-class">.right</span>&#123;</span></span><br><span class="line">                right: 0;</span><br><span class="line">                width: 300px;</span><br><span class="line">                background-color: blue;</span><br><span class="line">            &#125;</span><br><span class="line"><span class="css">            <span class="selector-class">.layout</span><span class="selector-class">.absolute</span> <span class="selector-class">.center</span>&#123;</span></span><br><span class="line">                left: 300px;</span><br><span class="line">                right: 300px;</span><br><span class="line">                background-color: yellow;</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">article</span> <span class="attr">class</span>=<span class="string">"left-right-center"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"center"</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>绝对定位解决方案<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">                    1.这是三栏布局中间部分 绝对定位解决方案</span><br><span class="line">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">article</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>flex解决方案</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">section</span> <span class="attr">class</span>=<span class="string">"layout flexbox"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">            <span class="selector-class">.layout</span><span class="selector-class">.flexbox</span>&#123;</span></span><br><span class="line">                margin-top: 140px;</span><br><span class="line">            &#125;</span><br><span class="line"><span class="css">            <span class="selector-class">.layout</span><span class="selector-class">.flexbox</span> <span class="selector-class">.left-center-right</span>&#123;</span></span><br><span class="line">                display: flex;</span><br><span class="line">            &#125;</span><br><span class="line"><span class="css">            <span class="selector-class">.layout</span><span class="selector-class">.flexbox</span> <span class="selector-class">.left</span>&#123;</span></span><br><span class="line">                width: 300px;</span><br><span class="line">                background: red</span><br><span class="line">            &#125;</span><br><span class="line"><span class="css">            <span class="selector-class">.layout</span><span class="selector-class">.flexbox</span> <span class="selector-class">.center</span>&#123;</span></span><br><span class="line">                flex: 1;</span><br><span class="line">                background-color: yellow</span><br><span class="line">            &#125;</span><br><span class="line"><span class="css">            <span class="selector-class">.layout</span><span class="selector-class">.flexbox</span> <span class="selector-class">.right</span>&#123;</span></span><br><span class="line">                width: 300px;</span><br><span class="line">                background-color: blue;</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">article</span> <span class="attr">class</span>=<span class="string">"left-center-right"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"center"</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>flexobox解决方案<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">                    1.这是三栏布局中间部分 flexobox解决方案</span><br><span class="line">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">article</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>表格解决方案</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">section</span> <span class="attr">class</span>=<span class="string">"layout table"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">            <span class="selector-class">.layout</span><span class="selector-class">.table</span> <span class="selector-class">.left-center-right</span>&#123;</span></span><br><span class="line">                width: 100%;</span><br><span class="line">                display: table;</span><br><span class="line">                height: 100px;</span><br><span class="line">            &#125;</span><br><span class="line"><span class="css">            <span class="selector-class">.layout</span><span class="selector-class">.table</span> <span class="selector-class">.left-center-right</span>&gt;<span class="selector-tag">div</span>&#123;</span></span><br><span class="line">                display: table-cell</span><br><span class="line">            &#125;</span><br><span class="line"><span class="css">            <span class="selector-class">.layout</span><span class="selector-class">.table</span> <span class="selector-class">.left</span>&#123;</span></span><br><span class="line">                width: 300px;</span><br><span class="line">                background: red;</span><br><span class="line">            &#125;</span><br><span class="line"><span class="css">            <span class="selector-class">.layout</span><span class="selector-class">.table</span> <span class="selector-class">.center</span>&#123;</span></span><br><span class="line">                background: yellow;</span><br><span class="line">            &#125;</span><br><span class="line"><span class="css">            <span class="selector-class">.layout</span><span class="selector-class">.table</span> <span class="selector-class">.right</span>&#123;</span></span><br><span class="line">                width: 300px;</span><br><span class="line">                background: blue;</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">acticle</span> <span class="attr">class</span>=<span class="string">"left-center-right"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"center"</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>表格布局解决方案<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">                    1.这是三栏布局中间部分 表格布局解决方案</span><br><span class="line">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">acticle</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>网格解决方案</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">section</span> <span class="attr">class</span>=<span class="string">"layout grid"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">            <span class="selector-class">.layout</span><span class="selector-class">.grid</span> <span class="selector-class">.left-center-right</span>&#123;</span></span><br><span class="line">                display: grid;</span><br><span class="line">                width: 100%;</span><br><span class="line">                grid-template-rows: 100px;</span><br><span class="line">                grid-template-columns: 300px auto 300px;</span><br><span class="line">            &#125;    </span><br><span class="line"><span class="css">            <span class="selector-class">.layout</span><span class="selector-class">.grid</span> <span class="selector-class">.left</span>&#123;</span></span><br><span class="line">                background: red</span><br><span class="line">            &#125;</span><br><span class="line"><span class="css">            <span class="selector-class">.layout</span><span class="selector-class">.grid</span> <span class="selector-class">.center</span>&#123;</span></span><br><span class="line">                background: yellow</span><br><span class="line">            &#125;</span><br><span class="line"><span class="css">            <span class="selector-class">.layout</span><span class="selector-class">.grid</span> <span class="selector-class">.right</span>&#123;</span></span><br><span class="line">                background: blue</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">article</span> <span class="attr">class</span>=<span class="string">"left-center-right"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"center"</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>网格布局解决方案<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">                    1.这是三栏布局中间部分 网格布局解决方案</span><br><span class="line">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">article</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>效果图展示</p>
+<p><img src="/images/mianshijiqiao/sanlanbuju.png" alt></p>
+<p>2.各种方案的优缺点</p>
+<ul>
+<li><p>浮动方案</p>
+<p>  缺点：浮动会脱离文档流,清楚浮动需要处理好。</p>
+<p>  优点：兼容性好</p>
+</li>
+<li><p>定位方案</p>
+<p>  缺点：快捷方便</p>
+<p>  优点：布局脱离文档流，所以其他下边的也需要定位，使用性差</p>
+</li>
+<li><p>flex方案</p>
+<p>  缺点：</p>
+<p>  优点：解决上述两个方案的缺点</p>
+</li>
+<li><p>表格方案</p>
+<p>  缺点：操作行差</p>
+<p>  优点：兼容性非常好，<code>ie8</code>不支持<code>flex</code>布局。两边的高度会根据中间高度变化。</p>
+</li>
+<li><p>网格方案</p>
+<p>  缺点：</p>
+<p>  优点：代码量少。</p>
+</li>
+</ul>
+<p>（有不足之处，欢迎补充！！）</p>
+<p>3.假设高度不固定，左右两侧的高度需要根据中间内容高度撑开，哪种还适用？</p>
+<p>flex、表格布局还可以使用。两侧高度会随着中间高度改变。效果图如下：</p>
+<p><img src="/images/mianshijiqiao/gaodubuding.png" alt></p>
+<p>4.哪种兼容性更好？</p>
+<h2 id="CSS盒模型、DOM事件类"><a href="#CSS盒模型、DOM事件类" class="headerlink" title="CSS盒模型、DOM事件类"></a>CSS盒模型、DOM事件类</h2><h3 id="CSS盒模型"><a href="#CSS盒模型" class="headerlink" title="CSS盒模型"></a>CSS盒模型</h3><p>1.谈谈对盒模型的认识</p>
+<p>基本模型：<code>content、padding、border、margin</code></p>
+<p>标准模型、IE模型</p>
+<p>2.标准模型和IE模型的区别</p>
+<ul>
+<li><p>标准模型：</p>
+<ul>
+<li><p>宽 = <code>content</code>的宽</p>
+</li>
+<li><p>高 = <code>content</code>的高</p>
+</li>
+<li><p>不包含 <code>border</code> 跟 <code>padding</code> 的宽高</p>
+</li>
+</ul>
+</li>
+<li><p>IE模型：</p>
+<ul>
+<li><p>宽 = <code>content</code>的宽 + <code>padding</code> 宽 + <code>border</code>宽</p>
+</li>
+<li><p>高 = <code>content</code>的高 + <code>padding</code> 高 + <code>border</code>高</p>
+</li>
+<li><p>包含<code>border</code>跟<code>padding</code>的宽高</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>3.<code>css</code>如何让设置这两种类型</p>
+<ul>
+<li><p><code>box-sizing : border-box;</code> //设置为IE模型</p>
+</li>
+<li><p><code>box-sizing : content-box;</code> //标准模型</p>
+</li>
+</ul>
+<p>4.JS如何设置盒模型对应的高度</p>
+<ul>
+<li><p><code>dom.style.width/height</code>                        //这种只能拿到内联样式</p>
+</li>
+<li><p><code>dom.currentStyle.width/height</code>                 //能拿到渲染后的各种样式的宽高，但是只有IE浏览器支持</p>
+</li>
+<li><p><code>window.getComputedStyle(dom).width/height</code>     //能拿到渲染后的各种样式的宽高，兼容性更好</p>
+</li>
+<li><p><code>dom.getBoundingClientRect().width/height</code>      //能拿到渲染后的各种样式的宽高，使用场所，计算一个元素的绝对位置，视窗的<code>left、top、width、height</code></p>
+</li>
+</ul>
+<p>5.根据盒模型解释边距重叠</p>
+<ul>
+<li><p>父子元素、兄弟元素，当有外边距时，会取其中一个边距的最大值，作为实际的边距。</p>
+</li>
+<li><p>空元素的有上下边距时，也会取其中更大的一个边距值，作为实际的边距。</p>
+</li>
+</ul>
+<p>这就是边距重叠。</p>
+<p>6.<code>BFC</code>(边距重叠解决方案)</p>
+<ul>
+<li><p><code>BFC</code>的基本概念：块级、格式化、上下文</p>
+</li>
+<li><p><code>IFC</code>的内联元素的格式化、上下文</p>
+</li>
+<li><p><code>BFC</code>原理：</p>
+<ul>
+<li><p>在<code>BFC</code>元素的垂直方向边距会发生重叠</p>
+</li>
+<li><p><code>BFC</code>区域不会与浮动的box元素重叠（经常用来清除浮动的）</p>
+</li>
+<li><p><code>BFC</code>是一个独立的元素，外边的元素不会影响里边的元素，同理里边的元素也不会影响外边的元素，</p>
+</li>
+<li><p>计算<code>BFC</code>高度的时候，浮动的元素也会参与计算</p>
+</li>
+</ul>
+</li>
+<li><p>如何创建一个<code>BFC</code></p>
+<ul>
+<li><p><code>overflow: hidden||auto;</code></p>
+</li>
+<li><p><code>float</code>值不为<code>null</code></p>
+</li>
+<li><p><code>position</code>的值不为<code>relative、static</code></p>
+</li>
+<li><p><code>display</code>的值<code>tablel</code>类、<code>inline-box</code>的</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="DOM事件"><a href="#DOM事件" class="headerlink" title="DOM事件"></a>DOM事件</h3><p>1.基本概念<code>DOM</code>事件的级别</p>
+<p><code>DOM0</code>  <code>element.onclick=function(){}</code></p>
+<p><code>DOM2</code>  <code>element.addEventListener(&#39;click&#39;,function(){},false)</code>   //第三个参数代表捕获还是冒泡,true代表捕获事件，false代表冒泡事件。</p>
+<p><code>DOM3</code>  <code>element.addEventListener(&#39;keyup&#39;,function(){},false)</code></p>
+<p>2.<code>DOM</code>事件模型：冒泡、捕获</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"ev"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">        <span class="selector-id">#ev</span>&#123;</span></span><br><span class="line">            width: 300px;</span><br><span class="line">            height: 100px;</span><br><span class="line">            background: red;</span><br><span class="line"><span class="css">            <span class="selector-tag">color</span>: <span class="selector-id">#fff</span>;</span></span><br><span class="line">            text-align: center;</span><br><span class="line">            line-height: 100px;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">        目标元素</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> ev = <span class="built_in">document</span>.getElementById(<span class="string">'ev'</span>);</span></span><br><span class="line"></span><br><span class="line"><span class="javascript"><span class="built_in">window</span>.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(<span class="string">'window captrue'</span>)</span></span><br><span class="line"><span class="actionscript">&#125;,<span class="literal">true</span>);</span></span><br><span class="line"></span><br><span class="line"><span class="javascript"><span class="built_in">document</span>.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(<span class="string">'document captrue'</span>)</span></span><br><span class="line"><span class="actionscript">&#125;,<span class="literal">true</span>);</span></span><br><span class="line"></span><br><span class="line"><span class="javascript"><span class="built_in">document</span>.documentElement.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(<span class="string">'html captrue'</span>)</span></span><br><span class="line"><span class="actionscript">&#125;,<span class="literal">true</span>);</span></span><br><span class="line"></span><br><span class="line"><span class="javascript"><span class="built_in">document</span>.body.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(<span class="string">'body captrue'</span>)</span></span><br><span class="line"><span class="actionscript">&#125;,<span class="literal">true</span>);</span></span><br><span class="line"></span><br><span class="line"><span class="actionscript">ev.addEventListenerev.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(<span class="string">'ev captrue'</span>)</span></span><br><span class="line"><span class="actionscript">&#125;,<span class="literal">true</span>);</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>效果图如下：(此图为捕获事件，冒泡事件把<code>true</code>改为<code>false</code>即可)</p>
+<p><img src="/images/mianshijiqiao/buhuo1.png" alt></p>
+<p>3.<code>DOM</code>事件流</p>
+<p>事件流所描述的就是从页面中接受事件的顺序。</p>
+<p>事件流三个阶段：</p>
+<ul>
+<li><p>捕获阶段</p>
+</li>
+<li><p>目标阶段</p>
+</li>
+<li><p>冒泡阶段</p>
+</li>
+</ul>
+<p>4.描述<code>DOM</code>事件捕获的具体流程</p>
+<p>捕获从大到小，<code>window-document-html(document.documentElement获取html)-body(document.body获取body元素)</code>-…-目标元素</p>
+<p>冒泡从小到大，与捕获相反。</p>
+<p>5.Event对象的常见应用</p>
+<ul>
+<li><p><code>event.preventDefault()</code>  //例如阻止<code>a</code>标签跳转的行为</p>
+</li>
+<li><p><code>event.stopPropagation()</code>  //阻止事件冒泡</p>
+</li>
+<li><p><code>event.stopImmediatePropagation()</code>   //事件响应的优先级，比如一个按钮上有事件<code>a</code>跟事件<code>b</code>,点击按钮时，想只触发事件<code>a</code>的不触发事件<code>b</code>,此时就在事件<code>a</code>中添加这句话，就阻止了事件<code>b</code>的触发</p>
+</li>
+<li><p><code>event.currentTarget</code>   //当前绑定的事件，值的是父级元素</p>
+</li>
+<li><p><code>event.target</code>   //当前被点击的子元素，用于事件委派</p>
+</li>
+</ul>
+<p>6.自定义事件</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"ev"</span>&gt;</span></span><br><span class="line">        目标元素</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript"><span class="keyword">var</span> eve = <span class="keyword">new</span> Event(<span class="string">'test'</span>)  <span class="comment">//创建自定义事件，并且定义事件名称test</span></span></span><br><span class="line"><span class="actionscript">ev.addEventListener(<span class="string">'test'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(<span class="string">'test dispatchEvent'</span>)</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="actionscript">ev.dispatchEvent(eve)  <span class="comment">//事件的触发，触发的是时间对象，不是事件名称</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>效果如下图</p>
+<p><img src="/images/mianshijiqiao/zidingyi.png" alt></p>
+<p>自己理解：当一个按钮点击时触发的不是<code>click</code>这种事件，自己定义的一个名称叫做<code>custome</code>的事件，然后使用<code>ev</code>的<code>dom</code>节点使用<code>dispatchEvent</code>调用。</p>
+<p>自定义事件可以使用<code>Event</code>，也可以使用<code>CustomEvent</code>，区别在于使用<code>CustomEvent</code>不仅仅可以指定事件名称，还可以跟一个<code>Oblect</code>作为指定参数，这可参数是自己定义的。</p>
+<h2 id="HTTP协议类、原型链类"><a href="#HTTP协议类、原型链类" class="headerlink" title="HTTP协议类、原型链类"></a>HTTP协议类、原型链类</h2><h3 id="HTTP协议类"><a href="#HTTP协议类" class="headerlink" title="HTTP协议类"></a>HTTP协议类</h3><p>1.HTTP协议的主要特点</p>
+<ul>
+<li><p>简单快速  每个资源<code>uri</code>(统一资源符)是固定的，想访问某个资源，直接输入这个<code>uri</code>就可以了。</p>
+</li>
+<li><p>灵活      每个<code>http</code>协议中有一个头部分，会有一个额数据类型，通过一个<code>http</code>协议就可完成不同数据类型的传输</p>
+</li>
+<li><p>无连接    连接一次就会断掉 </p>
+</li>
+<li><p>无状态    客户端跟服务端两种身份，客户端向附区段请求一个图片，然后<code>http</code>协议帮助建立连接，帮助传输，传输完成就断开。下次请求在连接。</p>
+</li>
+</ul>
+<p>2.HTTP报文的组成部分</p>
+<ul>
+<li><p>请求报文</p>
+<ul>
+<li><p>请求行</p>
+<ul>
+<li><p><code>http</code>方法</p>
+</li>
+<li><p>页面地址</p>
+</li>
+<li><p><code>http</code>协议以及版本</p>
+</li>
+</ul>
+</li>
+<li><p>请求头</p>
+<ul>
+<li>一些<code>key</code>、<code>value</code>值</li>
+</ul>
+</li>
+<li><p>空行</p>
+</li>
+<li><p>请求体</p>
+</li>
+</ul>
+</li>
+<li><p>响应报文</p>
+<ul>
+<li><p>状态行</p>
+</li>
+<li><p>响应头</p>
+</li>
+<li><p>空行</p>
+</li>
+<li><p>响应体</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>3.HTTP的方法</p>
+<ul>
+<li><p><code>GET</code>    获取资源</p>
+</li>
+<li><p><code>POST</code>   传输资源</p>
+</li>
+<li><p><code>PUT</code>    根心资源</p>
+</li>
+<li><p><code>DELETE</code> 删除资源</p>
+</li>
+<li><p><code>HEAD</code>   活得报文首部</p>
+</li>
+</ul>
+<p>4.<code>POST</code>和<code>GET</code>区别</p>
+<ul>
+<li><p><code>GET</code>在浏览器回退是无害的，而<code>POST</code>会再次提交请求</p>
+</li>
+<li><p><code>GET</code>请求会被浏览器主动缓存，而<code>POST</code>不会，除非手动设置</p>
+</li>
+<li><p><code>GET</code>请求参数会被完整保留才浏览器历史记录里，而<code>POST</code>中的参数不会被保留</p>
+</li>
+<li><p><code>GET</code>请求在<code>URL</code>中传送的参数长度是有限制的,一般是2<code>kb</code>，拼接的参数不要太长，会被<code>HTTP</code>协议截断，而<code>POST</code>没有限制</p>
+</li>
+<li><p><code>GET</code>参数通过<code>URL</code>传递，<code>POST</code>放在<code>Request body</code>中</p>
+</li>
+<li><p><code>GET</code>产生的<code>URL</code>的地址可以收藏，而<code>POST</code>不可以</p>
+</li>
+<li><p><code>GET</code>请求只能进行URL编码，而<code>POST</code>支持多种编码方式</p>
+</li>
+<li><p><code>GET</code>请求参数会被完整保留才浏览器历史记录里，而<code>POST</code>中的参数不会被保留</p>
+</li>
+<li><p>对参数的数据类型，<code>GET</code>只接受<code>ASCII</code>字符，而<code>POST</code>没有限制</p>
+</li>
+<li><p><code>GET</code>比<code>POST</code>更不安全，因为直接暴露在<code>URL</code>上，所以不能用来传输敏感信息</p>
+</li>
+</ul>
+<p>5.HTTP状态码</p>
+<ul>
+<li><p>1xx:指示信息–表示请求已接收，继续处理</p>
+</li>
+<li><p>2xx:成功–表示请求已经被成功接受</p>
+<ul>
+<li><p>200:客户端请求成功</p>
+</li>
+<li><p>206:额护短发送了一个<code>Range</code>头的<code>GET</code>请求，服务端完成了它</p>
+</li>
+</ul>
+</li>
+<li><p>3xx:重定向–要完成请求必须进行更进一步的操作</p>
+<ul>
+<li><p>301:所有请求页面已经转移到新的<code>url</code></p>
+</li>
+<li><p>302:所有请求页面已经临时转移到新的<code>url</code></p>
+</li>
+<li><p>304:服务器告诉浏览器已经有缓存，可以取缓存的文档用</p>
+</li>
+</ul>
+</li>
+<li><p>4xx:客户端错误–请求有语法错误活请求无法实现</p>
+<ul>
+<li><p>400:客户端语法错误，不能被服务端理解</p>
+</li>
+<li><p>401:请求未经授权</p>
+</li>
+<li><p>403:请求的资源禁止被访问</p>
+</li>
+<li><p>404:请求资源不存在</p>
+</li>
+</ul>
+</li>
+<li><p>5xx:服务端错误–服务端未能实现合法的请求</p>
+<ul>
+<li>500:服务器错误</li>
+</ul>
+</li>
+</ul>
+<p>6.什么是持久连接</p>
+<p>HTTP协议采用的是’请求-应答‘模式，每个请求/应答客户和服务器都要新建立一个链接，完成之后就立即断开(HTTP协议为无连接的协议)</p>
+<p>HTTP协议1.1是支持持久连接的，当使用持久连接的时候，当出现客户端对服务端的后续请求的时候，持久连接避免了建立或者重新建立连接。</p>
+<p>7.什么是管线化</p>
+<ul>
+<li>HTTP管线化是将多个HTTP请求（<code>request</code>）整批提交的技术，而在发送过程中不需先等待服务端的回应。</li>
+</ul>
+<p>在持久连接的情况下，某个连接上的消息的传递类似于：</p>
+<p>请求1 -&gt; 相应1 -&gt; 请求2 -&gt; 相应2 -&gt; 请求3 -&gt; 相应3</p>
+<p>管线化的某个连接上的消息的传递类似于：</p>
+<p>请求1 -&gt; 请求2 -&gt; 请求3 -&gt; 相应1 -&gt; 相应2 -&gt; 相应3</p>
+<ul>
+<li><p>特点：</p>
+<ul>
+<li><p>管线化机制须透过永久连线完成,仅仅HTTP协议1.1</p>
+</li>
+<li><p>只有 <code>GET</code> 和 <code>HEAD</code>可以进行管线化，<code>POST</code> 有所限制</p>
+</li>
+<li><p>初次创建连线时也不应启动管线机制，因为对方（服务器）不一定支持 HTTP/1.1 版本的协议。</p>
+</li>
+<li><p>管线化不会影响响应到来的顺序，响应返回的顺序并未改变。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="面向对象类、通信类"><a href="#面向对象类、通信类" class="headerlink" title="面向对象类、通信类"></a>面向对象类、通信类</h2><h3 id="面向对象类"><a href="#面向对象类" class="headerlink" title="面向对象类"></a>面向对象类</h3><p>1.创建对象有几种方法</p>
+<ul>
+<li><p>字面量</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o1 = &#123;name:<span class="string">'o1'</span>&#125;</span><br><span class="line"><span class="keyword">var</span> o2= <span class="keyword">new</span> <span class="built_in">Object</span>(&#123;name:<span class="string">'o2'</span>&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>显式的构造函数</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> M = <span class="function"><span class="keyword">function</span><span class="params">(name)</span></span>&#123;<span class="keyword">this</span>.name = name&#125;</span><br><span class="line"><span class="keyword">var</span> o3 = <span class="keyword">new</span> M(<span class="string">'o3'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Object.create</code>方法</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> P = &#123;name:<span class="string">'o4'</span>&#125;</span><br><span class="line"><span class="keyword">var</span> o4 = <span class="built_in">Object</span>.create(P)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>2.原型</p>
+<ul>
+<li><p>所有引用类型都有一个<strong>proto</strong>(隐式原型)属性，属性值是一个普通的对象 </p>
+</li>
+<li><p>所有函数都有一个prototype(原型)属性，属性值是一个普通的对象 </p>
+</li>
+<li><p>所有引用类型的<strong>proto</strong>属性指向它构造函数的prototype</p>
+</li>
+</ul>
+<p>构造函数：凡是被<code>new</code>使用了，后边的函数就是构造函数。任何函数都会有一个<code>prototype</code>属性,函数的<code>prototype</code>属性指的就是原型对象。</p>
+<p>实例：只要是对象就是一个实例（o1 o2）就会有<code>__proto__</code>属性。</p>
+<p>原型对象：原型对象中有有一个构造器<code>constructor</code>,这个构造器可以看出原型对象是被那个构造函数引用的。</p>
+<p>3.原型链</p>
+<p>原型链：当访问一个对象的某个属性时，会先在这个对象本身属性上查找，如果没有找到，则会去它的<code>__proto__</code>隐式原型上查找，即它的构造函数的<code>prototype</code>，如果还没有找到就会再在构造函数的<code>prototype</code>的<code>__proto__</code>中查找，这样一层一层向上查找就会形成一个链式结构，我们称为原型链。</p>
+<ul>
+<li><p>一直往上层查找，直到到<code>null</code>还没有找到，则返回<code>undefined</code></p>
+</li>
+<li><p><code>Object.prototype.__proto__ === null</code> </p>
+</li>
+<li><p>所有从原型或更高级原型中的得到、执行的方法，其中的this在执行时，指向当前这个触发事件执行的对象</p>
+</li>
+</ul>
+<p>3.<code>instanceof</code>的原理</p>
+<p>原理是判断实例对象的<code>__proto__</code>属性跟构造函数的<code>prototype</code>属性是不是同一个引用，如果是，就成立，否则反之。只要是在一条原型链上的<code>instanceof</code>都会返回<code>true</code>。例如上述例子，<code>o3</code>是<code>M</code>构造函数的实例，也是<code>Obiect</code>的实例。所以使用<code>constructor</code>来判断更加准确。</p>
+<p>如图所示：</p>
+<p><img src="/images/mianshijiqiao/instanceof.png" alt></p>
+<p>4.new运算符</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> new2 = function(<span class="function"><span class="keyword">func</span>)</span>&#123;    <span class="comment">//func为传入的构造函数</span></span><br><span class="line">    <span class="keyword">var</span> o = Object.create(<span class="function"><span class="keyword">func</span>.<span class="title">prototype</span>)    //创建一个对象，并且绑定构造函数的原型对象</span></span><br><span class="line">    <span class="keyword">var</span> k = <span class="function"><span class="keyword">func</span>.<span class="title">call</span><span class="params">(o)</span>;    //构造函数被执行，执行的时候上下文（<span class="title">this</span>）会被指定为这个新实例，使用<span class="title">call</span>转移<span class="title">func</span>的上下文</span></span><br><span class="line">    <span class="keyword">if</span>(typeof k === <span class="string">'object'</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> k    <span class="comment">//如果返回的是一个对象，那么整个对象会取代真个`new`出来的结果。</span></span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> o    <span class="comment">//没有返回一个对象时，那么 new 出来的结果为第一步创建的对象 o</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="类与实例"><a href="#类与实例" class="headerlink" title="类与实例"></a>类与实例</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 类的声明</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Animal</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = <span class="string">'name'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// es6中class声明</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal2</span></span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>()&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 实例化  new后边的构造函数不传参数，那么有没有括号是一样的。</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">new</span> Animal(),<span class="keyword">new</span> Animal2);</span><br></pre></td></tr></table></figure>
+<h4 id="类与继承"><a href="#类与继承" class="headerlink" title="类与继承"></a>类与继承</h4><p>1.继承的几种方式</p>
+<ul>
+<li>借助构造函数实现继承<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = <span class="string">'Parent1'</span></span><br><span class="line">&#125;</span><br><span class="line">Parent1.prototype.say=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    Parent1.call(<span class="keyword">this</span>)  <span class="comment">//子类执行父类的构造函数，call/apply改变this指向。将父级的构造函数的this指向子构造函数Child的实例，所以子类有父类的所有属性以及方法。</span></span><br><span class="line">    <span class="keyword">this</span>.type = <span class="string">'Child1'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">new</span> Child1)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">new</span> Child1().say())</span><br><span class="line"><span class="comment">//此时Parent1原型链上的东西没有被Child1继承</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>打印结果图：<br><img src="/images/mianshijiqiao/gouzao1.png" alt>  </p>
+<p><img src="/images/mianshijiqiao/gouzao2.png" alt></p>
+<ul>
+<li>借助原型链实现继承<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = <span class="string">'Parent2'</span></span><br><span class="line">    <span class="keyword">this</span>.play = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.type = <span class="string">'Child2'</span></span><br><span class="line">&#125;</span><br><span class="line">Child2.prototype = <span class="keyword">new</span> Parent2(); <span class="comment">//Child2.prototype这个对象赋值为Parent2这个对象</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">new</span> Child2)<span class="comment">//new Child2这个实例对象的__proto__跟Child2这个构造函数的prototype的属性是相等的。</span></span><br><span class="line"><span class="keyword">var</span> s1 = <span class="keyword">new</span> Child2();</span><br><span class="line"><span class="keyword">var</span> s2 = <span class="keyword">new</span> Child2();</span><br><span class="line"><span class="built_in">console</span>.log(s1.play,s2.play)</span><br><span class="line">s1.play.push(<span class="number">4</span>);</span><br><span class="line"><span class="built_in">console</span>.log(s1.play,s2.play)</span><br><span class="line"><span class="comment">// 缺点：多个实例共享一个原型对象，有一个实例中改变原型对象中的某个属性，则其他实例使用的原型对象上的属性的值也回相应的改变。</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>打印结果图：<br><img src="/images/mianshijiqiao/yuanxinglian1.png" alt>  </p>
+<p><img src="/images/mianshijiqiao/yuanxinglian2.png" alt></p>
+<p><img src="/images/mianshijiqiao/yuanxinglian3.png" alt></p>
+<ul>
+<li>组合方式<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent3</span></span>()&#123;</span><br><span class="line">    <span class="built_in">this</span>.name = <span class="string">'Parent3'</span></span><br><span class="line">    <span class="built_in">this</span>.play = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child3</span></span>()&#123;</span><br><span class="line">    Parent3.call(<span class="built_in">this</span>) <span class="comment">//第一次</span></span><br><span class="line">    <span class="built_in">this</span>.type = <span class="string">'Child3'</span></span><br><span class="line">&#125;</span><br><span class="line">Child3.prototype = <span class="keyword">new</span> <span class="type">Parent3</span>  <span class="comment">//第二次</span></span><br><span class="line">console.log(<span class="keyword">new</span> <span class="type">Child3</span>)</span><br><span class="line"><span class="keyword">var</span> s3 = <span class="keyword">new</span> <span class="type">Child3</span>();</span><br><span class="line"><span class="keyword">var</span> s4 = <span class="keyword">new</span> <span class="type">Child3</span>();</span><br><span class="line">s3.play.push(<span class="number">4</span>)</span><br><span class="line">console.log(s3.play,s4.play)</span><br><span class="line"><span class="comment">//缺点：实例化子类的时候，父类的构造函数执行了两次，</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>打印结果图：<br><img src="/images/mianshijiqiao/zuhe1.png" alt>  </p>
+<p><img src="/images/mianshijiqiao/zuhe1.1.png" alt></p>
+<ul>
+<li>组合优化1<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent4</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = <span class="string">'Parent4'</span></span><br><span class="line">    <span class="keyword">this</span>.play = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child4</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    Parent4.call(<span class="keyword">this</span>) </span><br><span class="line">    <span class="keyword">this</span>.type = <span class="string">'Child4'</span></span><br><span class="line">&#125;</span><br><span class="line">Child4.prototype = Parent4.prototype  <span class="comment">//此处直接引用父类的原型对象，子类与父类用的是同一个原型对象</span></span><br><span class="line"><span class="keyword">var</span> s5 = <span class="keyword">new</span> Child4();</span><br><span class="line"><span class="keyword">var</span> s6 = <span class="keyword">new</span> Child4();</span><br><span class="line"><span class="built_in">console</span>.log(s5,s6)</span><br><span class="line"><span class="built_in">console</span>.log(s5 <span class="keyword">instanceof</span> Child4,s5 <span class="keyword">instanceof</span> Parent4)<span class="comment">//true true</span></span><br><span class="line"><span class="built_in">console</span>.log(s5.constructor)<span class="comment">//Parent4.prototype的constructor当然是Parent4自己</span></span><br><span class="line"><span class="comment">// 缺点：因为Child4跟Parent4公用的是一个原型对象。所以不能确定一个对象（s5）是由他的子类（Child4）实例化的还是由他的父类（Parent4）实例化的。</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>打印结果图：<br><img src="/images/mianshijiqiao/youhua1.png" alt>  </p>
+<p><img src="/images/mianshijiqiao/youhua1.1.png" alt></p>
+<ul>
+<li>组合优化2<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent5</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = <span class="string">'Parent5'</span></span><br><span class="line">    <span class="keyword">this</span>.play = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child5</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    Parent5.call(<span class="keyword">this</span>) </span><br><span class="line">    <span class="keyword">this</span>.type = <span class="string">'Child5'</span></span><br><span class="line">&#125;</span><br><span class="line">Child5.prototype = <span class="built_in">Object</span>.create(Parent5.prototype)<span class="comment">//首先把父类子类的原型对象隔离</span></span><br><span class="line">Child5.prototype.constructor = Child5<span class="comment">//子类还是会通过原型对象找，需要给子类写一个自己的constructor。</span></span><br><span class="line"><span class="comment">// 通过创建中间对象的方法把Child5跟Parent5的原型对象区分开，这个中间对象的原型对象是指向父类的</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>打印结果图：<br><img src="/images/mianshijiqiao/zuizhong.png" alt>  </p>
+<h3 id="通信类"><a href="#通信类" class="headerlink" title="通信类"></a>通信类</h3><p>1.什么是同源策略以及限制</p>
+<p>同源策略：限制从一个源加载的文档或者脚本如何让与来自另一个源的资源进行交互。这还是一个用于隔离潜在恶意摁键的关键的安全机制。源包含：协议、域名、端口。</p>
+<p>限制：</p>
+<ul>
+<li><p>cookie、localstorage、indexDB取法读取</p>
+</li>
+<li><p>DOM无法获得</p>
+</li>
+<li><p>AJAX请求不饿能发送</p>
+</li>
+</ul>
+<p>2.前后端如何让通信</p>
+<ul>
+<li><p>Ajax:同源通信</p>
+</li>
+<li><p>webscoket:不受同源策略的限制</p>
+</li>
+<li><p>cors:支持跨域通信、也支持同源通信</p>
+</li>
+</ul>
+<p>3.如何让创建Ajax</p>
+<p>考察点：</p>
+<ul>
+<li><p>XMLHttpRequest对象的工作流程</p>
+</li>
+<li><p>兼容性处理</p>
+</li>
+<li><p>事件的出发条件</p>
+</li>
+<li><p>事件的出发顺序</p>
+</li>
+</ul>
+<figure class="highlight qml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ajax</span>(<span class="params">settings</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> type=settings.type||<span class="string">"get"</span>;</span><br><span class="line">	<span class="keyword">var</span> <span class="built_in">url</span>=settings.url;</span><br><span class="line">	<span class="keyword">var</span> data=settings.data||<span class="string">""</span>;</span><br><span class="line">	<span class="keyword">var</span> dataType=settings.dataType||<span class="string">""</span>;</span><br><span class="line">	<span class="keyword">var</span> success=settings.success;</span><br><span class="line">	<span class="keyword">if</span>(<span class="keyword">typeof</span> data===<span class="string">"object"</span>)&#123;</span><br><span class="line">		<span class="keyword">let</span> str=<span class="string">""</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> data)&#123;</span><br><span class="line">			str+=i+<span class="string">"="</span>+data[i]+<span class="string">"&amp;"</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		data=str.slice(<span class="number">0</span>,<span class="number">-1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">var</span> xhr=<span class="keyword">new</span> XMLHttpRequest ? <span class="keyword">new</span> XMLHttpRequest() : <span class="keyword">new</span> <span class="built_in">window</span>.ActiveXObject(<span class="string">'Microsoft.XMLHTTP'</span>);</span><br><span class="line">	<span class="keyword">if</span>(xhr.type===<span class="string">"get"</span>)&#123;</span><br><span class="line">		<span class="keyword">if</span>(data===<span class="string">""</span>)&#123;</span><br><span class="line">			xhr.open(<span class="string">"get"</span>,<span class="built_in">url</span>);</span><br><span class="line">			xhr.send();</span><br><span class="line">		&#125;<span class="title">else</span>&#123;</span><br><span class="line">			xhr.open(<span class="string">"get"</span>,<span class="built_in">url</span>+<span class="string">"?"</span>+data);</span><br><span class="line">			xhr.send();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;<span class="title">else</span>&#123;</span><br><span class="line">		xhr.open(<span class="string">"post"</span>,<span class="built_in">url</span>);</span><br><span class="line">		xhr.setRequestHeader(<span class="string">"Content-Type"</span>,<span class="string">"application/x-www-form-urlencoded"</span>);</span><br><span class="line">		xhr.send(data);</span><br><span class="line">	&#125;</span><br><span class="line">	xhr.responseType=dataType;<span class="comment">//</span></span><br><span class="line">	xhr.onload=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">var</span> res=xhr.response;<span class="comment">//</span></span><br><span class="line">		<span class="keyword">if</span>(xhr.status === <span class="number">200</span> || xhr.status === <span class="number">304</span>)&#123;</span><br><span class="line">			success(res);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>4.跨域通信的方式</p>
+<ul>
+<li><p>jsonp：使用script标签的异步加载实现的</p>
+</li>
+<li><p>cors</p>
+</li>
+<li><p>websocket</p>
+</li>
+<li><p>hash:hash改变页面不刷新</p>
+</li>
+<li><p>postMessage</p>
+</li>
+</ul>
+<!-- <!-- ## 前端安全类、前端算法类 -->
+<h1 id="二面"><a href="#二面" class="headerlink" title="二面"></a>二面</h1><h2 id="渲染机制类"><a href="#渲染机制类" class="headerlink" title="渲染机制类"></a>渲染机制类</h2><p>1.什么是DOCTYPE以及作用</p>
+<p>作用：告诉浏览器应当前文档是什么类型，声明文档类型和DTD规范的，DTD是文档类型定义</p>
+<p>2.浏览器渲染过程</p>
+<ul>
+<li><p><code>html</code>转为<code>DOM Tree</code></p>
+</li>
+<li><p><code>css</code>转为<code>css Tree</code></p>
+</li>
+<li><p><code>DOM Tree</code>跟<code>css Tree</code>结合形成 <code>render tree</code></p>
+</li>
+<li><p><code>render tree</code>跟<code>layout</code>结合，精确计算<code>dom</code>的位置以及宽高</p>
+</li>
+<li><p>浏览器绘图</p>
+</li>
+</ul>
+<p>3.重排Reflow</p>
+<p>dom结构中的每个元素都有自己的盒子，这些都需要浏览器根据各种样式来计算结果将元素放到该出现的位置，这个过程会重排</p>
+<p>4.重绘Repaint</p>
+<p>当各种盒子的位置、大小以及其他属性，例如颜色、字体大小确定后，浏览器吧这些元素按照找各自的特性绘制一边，于是页面内容出现了，这个过程称为重绘</p>
+<h2 id="JS运行机制"><a href="#JS运行机制" class="headerlink" title="JS运行机制"></a>JS运行机制</h2><p>1.JS的单线程机制：同一个时间只能干一件事</p>
+<p>2.任务队列：同步任务队列、异步任务队列</p>
+<p>3.事件循环机制</p>
+<p>JS从上往下执行，先把同步任务放置同步队列中，把异步队列先挂起，到达指定时间，才把异步任务放到异步对列中，同步任务执行完，就去异步队列中查看是否有执行的，有，就拿到同步队列中执行，执行完，再去异步队列中查找，一次循环，知道执行完毕。</p>
+<p>4.哪些语句是异步任务队列:setTimeout、setInterval、es6的promise、DOM事件(addEventListener)</p>
+<p>5.异步语句放入异步任务队列的时间，不是立马放入异步任务队列，到达指定时间或者是点击事件出发后才会放入，即使延迟写的是0秒，也会在4s之后才加入异步任务队列。</p>
+<h2 id="页面性能"><a href="#页面性能" class="headerlink" title="页面性能"></a>页面性能</h2><p>1.提升页面性能的方法：</p>
+<ul>
+<li><p>资源压缩合并，减少<code>HTTP</code>请求</p>
+</li>
+<li><p>非核心代码的异步加载–异步加载的方式有哪些–异步加载的区别</p>
+</li>
+<li><p>利用浏览器缓存–缓存的分类–缓存的原理</p>
+</li>
+<li><p>使用<code>cdn</code></p>
+</li>
+<li><p>预解析<code>dns</code></p>
+<ul>
+<li><p><code>head</code>中插入<code>&lt;link rel=&quot;dns-prefetch&quot;&gt;</code></p>
+</li>
+<li><p>页面中所有<code>a</code>标签默认打开dns预解析的，<code>https</code>开头的页面预解析是关闭的，徐强制打开的<code>&lt;meta http-equiv=&quot;x-dns-prefetch-control&gt;</code></p>
+</li>
+</ul>
+</li>
+</ul>
+<p>2.异步加载的方式</p>
+<ul>
+<li><p>动态脚本加载:通过<code>js</code>创建的元素，然后添加到<code>body</code>中</p>
+</li>
+<li><p>defer</p>
+</li>
+<li><p>async</p>
+</li>
+</ul>
+<p>3.异步加载方式的区别</p>
+<ul>
+<li><p><code>defer</code>是在<code>html</code>解析完成之后才会执行，如果是多个，按照加载的顺序依次执行</p>
+</li>
+<li><p><code>async</code>是在加载完成之后立即执行，如果是多个，执行顺序和加载顺序无关。</p>
+</li>
+</ul>
+<p>4.缓存分为强缓存和协商缓存</p>
+<h2 id="错误监控"><a href="#错误监控" class="headerlink" title="错误监控"></a>错误监控</h2><p>1.前端错误的分类</p>
+<ul>
+<li><p>代码错误</p>
+</li>
+<li><p>资源加载错误</p>
+</li>
+</ul>
+<p>2.错误的捕获方式</p>
+<ul>
+<li><p>代码错误： <code>try..catch</code>     <code>window.onerror</code></p>
+</li>
+<li><p>资源错误：<code>obiect.onerror</code>     <code>performance.getEntries()</code>     <code>Error</code>事件捕获</p>
+</li>
+</ul>
+<p>3.跨域的js运行错误可以捕获吗？错误提示是什么？应该怎么处理？</p>
+<p>可以，提示：<code>script error</code> ,在客户端的<code>script</code>标签添加<code>crossorigin</code>属性，服务端设置<code>js</code>资源响应头<code>Access-Controol-Allow-Origin:*</code></p>
+<p>4.上报错误的基本原理</p>
+<ul>
+<li><p>使用AJAX上报</p>
+</li>
+<li><p>使用image上报：(new Image()).src = ‘上报地址’</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;margin-top:50px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端面试题/" rel="tag"><i class="fa fa-tag"></i> 前端面试题</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/09/21/前端/this/this/" rel="next" title="this指向问题">
+                <i class="fa fa-chevron-left"></i> this指向问题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/09/21/前端/杂记/前端面试题/" rel="prev" title="前端面试题">
+                前端面试题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/杂记/one.jpg" alt="只有极其努力，才能看起来毫不费力。">
+            
+              <p class="site-author-name" itemprop="name">只有极其努力，才能看起来毫不费力。</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">44</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://15735046155.github.io/" title="GitHub &rarr; https://15735046155.github.io/" rel="noopener" target="_blank"><i class="fa fa-fw fa-globe"></i>GitHub</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一面"><span class="nav-number">1.</span> <span class="nav-text">一面</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#页面布局类"><span class="nav-number">1.1.</span> <span class="nav-text">页面布局类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS盒模型、DOM事件类"><span class="nav-number">1.2.</span> <span class="nav-text">CSS盒模型、DOM事件类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS盒模型"><span class="nav-number">1.2.1.</span> <span class="nav-text">CSS盒模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DOM事件"><span class="nav-number">1.2.2.</span> <span class="nav-text">DOM事件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP协议类、原型链类"><span class="nav-number">1.3.</span> <span class="nav-text">HTTP协议类、原型链类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP协议类"><span class="nav-number">1.3.1.</span> <span class="nav-text">HTTP协议类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#面向对象类、通信类"><span class="nav-number">1.4.</span> <span class="nav-text">面向对象类、通信类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#面向对象类"><span class="nav-number">1.4.1.</span> <span class="nav-text">面向对象类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#类与实例"><span class="nav-number">1.4.1.1.</span> <span class="nav-text">类与实例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#类与继承"><span class="nav-number">1.4.1.2.</span> <span class="nav-text">类与继承</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通信类"><span class="nav-number">1.4.2.</span> <span class="nav-text">通信类</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二面"><span class="nav-number">2.</span> <span class="nav-text">二面</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#渲染机制类"><span class="nav-number">2.1.</span> <span class="nav-text">渲染机制类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS运行机制"><span class="nav-number">2.2.</span> <span class="nav-text">JS运行机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#页面性能"><span class="nav-number">2.3.</span> <span class="nav-text">页面性能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#错误监控"><span class="nav-number">2.4.</span> <span class="nav-text">错误监控</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-snowflake-o"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">只有极其努力，才能看起来毫不费力。</span>
+
+  
+
+  
+</div>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i>
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</div>
+
+<span class="post-meta-divider">|</span>
+
+<div class="powered-by">
+<i class="fa fa-eye"></i>
+  本站总访问量:<span id="busuanzi_value_site_pv"></span>
+</div>
+
+<!--
+
+-->
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.1"></script>
+
+  <script src="/js/motion.js?v=7.1.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.1"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+<script>
+  $('.highlight').not('.gist .highlight').each(function(i, e) {
+    var $wrap = $('<div>').addClass('highlight-wrap');
+    $(e).after($wrap);
+    $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function(e) {
+      var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+        return $(e).text();
+      }).toArray().join('\n');
+      var ta = document.createElement('textarea');
+      var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+      ta.style.top = yPosition + 'px'; // Prevent page scroll
+      ta.style.position = 'absolute';
+      ta.style.opacity = '0';
+      ta.readOnly = true;
+      ta.value = code;
+      document.body.appendChild(ta);
+      ta.select();
+      ta.setSelectionRange(0, code.length);
+      ta.readOnly = false;
+      var result = document.execCommand('copy');
+      
+        if (result) $(this).text('复制成功');
+        else $(this).text('复制失败');
+      
+      ta.blur(); // For iOS
+      $(this).blur();
+    })).on('mouseleave', function(e) {
+      var $b = $(this).find('.copy-btn');
+      setTimeout(function() {
+        $b.text('复制');
+      }, 300);
+    }).append(e);
+  })
+</script>
+
+
+  
+
+  
+
+
+  
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
