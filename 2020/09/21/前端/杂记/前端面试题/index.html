@@ -1,0 +1,1455 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="前端面试常见题">
+<meta name="keywords" content="前端面试题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端面试题">
+<meta property="og:url" content="http://yoursite.com/2020/09/21/前端/杂记/前端面试题/index.html">
+<meta property="og:site_name" content="coder">
+<meta property="og:description" content="前端面试常见题">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2021-12-30T08:37:03.953Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端面试题">
+<meta name="twitter:description" content="前端面试常见题">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2020/09/21/前端/杂记/前端面试题/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>前端面试题 | coder</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://15735046155.github.io/" class="github-corner" aria-label="View source on GitHub"><svg width="87" height="87" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">coder</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/21/前端/杂记/前端面试题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="只有极其努力，才能看起来毫不费力。">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/杂记/one.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="coder">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">前端面试题
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-09-21 20:56:33" itemprop="dateCreated datePublished" datetime="2020-09-21T20:56:33+08:00">2020-09-21</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2021-12-30 16:37:03" itemprop="dateModified" datetime="2021-12-30T16:37:03+08:00">2021-12-30</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端面试题/" itemprop="url" rel="index"><span itemprop="name">前端面试题</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+            <div class="post-description">前端面试常见题</div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h1><h2 id="前端性能优化"><a href="#前端性能优化" class="headerlink" title="前端性能优化"></a>前端性能优化</h2><p>1.清理 HTML 文档</p>
+<p>HTML，即超文本标记语言，几乎是所有网站的支柱。HTML 为网页带来标题、子标题、列表和其它一些文档结构的格式。在最近更新的 HTML5 中，甚至可以创建图表。</p>
+<p>HTML 很容易被网络爬虫识别，因此搜索引擎可以根据网站的内容在一定程度上实时更新。在写 HTML 的时候，你应该尝试让它简洁而有效。此外，在 HTML 文档中引用外部资源的时候也需要遵循一些最佳实践方法。</p>
+<p>a.恰当放置 CSS</p>
+<p>Web 设计者喜欢在网页建立起主要的 HTML 骨架之后再来创建样式表。这样一来，网页中的样式表往往会放在 HTML 的后面，接近文档结束的地方。然而推荐的做法是把 CSS 放在 HTML 的上面部分，文档头之内，这可以确保正常的渲染过程。</p>
+<p>这个策略不能提高网站的加载速度，但它不会让访问者长时间看着空白屏幕或者无格式的文本（FOUT）等待。如果网页大部分可见元素已经加载出来了，访问者才更有可能等待加载整个页面，从而带来对前端的优化效果。这就是知觉性能</p>
+<p>b.正确放置 Javascript</p>
+<p>另一方面，如果将 JavaScript 放置在 head 标签内或 HTML 文档的上部，这会阻塞 HTML 和 CSS 元素的加载过程。这个错误会导致页面加载时间增长，增加用户等待时间，容易让人感到不耐烦而放弃对网站的访问。不过，您可以通过将 JavaScript 属性置于 HTML 底部来避免此问题。</p>
+<p>此外，在使用 JavaScript 时，人们通常喜欢用异步脚本加载。这会阻止<code>&lt;script&gt;</code>标签在 HTML 中的呈现过程，如，在文档中间的情况。</p>
+<p>虽然对于网页设计师来说， HTML 是最值得使用的工具之一，但它通常要与 CSS 和 JavaScript 一起使用，这可能会导致网页浏览速度减慢。 虽然 CSS 和 JavaScript 有利于网页优化，但使用时也要注意一些问题。使用 CSS 和 JavaScript 时，要避免嵌入代码。因为当您嵌入代码时，要将 CSS 放置在样式标记中，并在脚本标记中使用 JavaScript，这会增加每次刷新网页时必须加载的 HTML 代码量。</p>
+<p>2.优化 CSS 性能</p>
+<p>CSS，即级联样式表，能从 HTML 描述的内容生成专业而又整洁的文件。很多 CSS 需要通过 HTTP 请求来引入（除非使用内联 CSS），所以你要努力去除累赘的 CSS 文件，但要注意保留其重要特征。</p>
+<p>如果你的 Banner、插件和布局样式是使用 CSS 保存在不同的文件内，那么，访问者的浏览器每次访问都会加载很多文件。虽然现在 HTTP/2 的存在，减少了这种问题的发生，但是在外部资源加载的情况下，仍会花费较长时间。要了解如何减少 HTTP 请求以大幅度缩减加载时间，请阅读WordPress 性能。</p>
+<p>此外，不少网站管理员在网页中错误的使用 @import 指令 来引入外部样式表。这是一个过时的方法，它会阻止浏览并行下载。link 标签才是最好的选择，它也能提高网站的前端性能。多说一句，通过 link 标签请求加载的外部样式表不会阻止并行下载。</p>
+<p>3.减少外部HTTP请求</p>
+<p>在很多情况下，网站的大部分加载时间来自于外部的 Http 请求。外部资源的加载速度随着主机提供商的服务器架构、地点等不同而不同。减少外部请求要做的第一步就是简略地检查网站。研究你网站的每个组成部分，消除任何影响访问者体验不好的成分。这些成分可能是：</p>
+<ul>
+<li>不必要的图片</li>
+<li>没用的 JavaScript 代码</li>
+<li>过多的 css</li>
+<li>多余的插件</li>
+</ul>
+<p>在你去掉这些多余的成分之后，再对剩下的内容进行整理，如，压缩工具、CDN 服务和预获取（prefetching）等，这些都是管理 HTTP 请求的最佳选择。除此之外，减少DNS路由查找教程会教你如何一步一步的减少外部 HTTP 请求。</p>
+<p>4.压缩 CSS, JS 和 HTML</p>
+<p>压缩技术可以从文件中去掉多余的字符。你在编辑器中写代码的时候，会使用缩进和注释，这些方法无疑会让你的代码简洁而且易读，但它们也会在文档中添加多余的字节。</p>
+<p>5.使用预先获取</p>
+<p>预先获取可以在真正需要之前通过取得必需的资源和相关数据来改善访问用户的浏览体验，主要有3类预先获取:</p>
+<ul>
+<li>链接预先获取</li>
+<li>DNS 预先获取</li>
+<li>预先渲染</li>
+</ul>
+<p>在你离开当前 web 页面之前，使用预先获取方式，对应每个链接的 URL 地址，CSS，图片和脚本都会被预先获取。这保证了访问者能在最短时间内使用链接在画面间切换。</p>
+<p>幸运的是，预先获取很容易实现。根据你想要使用的预先获取形式，你只需在网站 HTML 中的链接属性上增加 rel=”prefetch”,rel=”dns-prefetch”，或者 rel=”prerender” 标记。</p>
+<p>6.使用 CDN 和缓存提高速度</p>
+<p>内容分发网络能显著提高网站的速度和性能。使用 CDN 时，您可以将网站的静态内容链接到全球各地的服务器扩展网络。如果您的网站观众遍布全球，这项功能十分有用。 CDN 允许您的网站访问者从最近的服务器加载数据。如果您使用 CDN，您网站内的文件将自动压缩，以便在全球范围内快速分发。</p>
+<p>CDN 是一种缓存方法，可极大改善资源的分发时间，同时，它还能实现一些其他的缓存技术，如，利用浏览器缓存。</p>
+<p>合理地设置浏览器缓存，能让浏览器自动存储某些文件，以便加快传输速度。此方法的配置可以直接在源服务器的配置文件中完成。</p>
+<p>7.压缩文件</p>
+<p>虽然许多 CDN 服务可以压缩文件，但如果不使用 CDN，您也可以考虑在源服务器上使用文件压缩方法来改进前端优化。 文件压缩能使网站的内容轻量化，更易于管理。 最常用的文件压缩方法之一是 Gzip。 这是缩小文档、音频文件、PNG图像和等其他大文件的绝佳方法。</p>
+<p>Brotli 是一个比较新的文件压缩算法，目前正变得越来越受欢迎。 此开放源代码算法由来自 Google 和其他组织的软件工程师定期更新，现已被证明比其他现有压缩方法更好用。 这种算法的支持目前还比较少，但作为后起之秀指日可待。</p>
+<p>8.使用轻量级框架</p>
+<p>除非你只用现有的编码知识构建网站，不然，你可以尝试使用一个好的前端框架来避免许多不必要的前端优化错误。虽然有一些更大，更知名的框架能提供更多功能和选项，但它们不一定适合你的 Web 项目。</p>
+<p>所以说，不仅确定项目所需功能很重要，选择合适的框架也很重要——它要在提供所需功能的同时保持轻量。最近许多框架都使用简洁的 HTML，CSS 和 JavaScript 代码。</p>
+<h2 id="一个页面从输入-URL-到页面加载显示完成，这个过程中都发生了什么？"><a href="#一个页面从输入-URL-到页面加载显示完成，这个过程中都发生了什么？" class="headerlink" title="一个页面从输入 URL 到页面加载显示完成，这个过程中都发生了什么？"></a>一个页面从输入 URL 到页面加载显示完成，这个过程中都发生了什么？</h2><p>参考链接：<br>详细解读<a href="https://segmentfault.com/a/1190000006879700" target="_blank" rel="noopener">https://segmentfault.com/a/1190000006879700</a><br>详细解读<a href="https://mp.weixin.qq.com/s/jjL4iA7p6aYEAQyWhn4QbQ" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/jjL4iA7p6aYEAQyWhn4QbQ</a></p>
+<p>输入地址<br>1.浏览器查找域名的 IP 地址<br>2.这一步包括 DNS 具体的查找过程，包括：浏览器缓存-&gt;系统缓存-&gt;路由器缓存…<br>3.浏览器向 web 服务器发送一个 HTTP 请求<br>4.服务器的永久重定向响应（从 <a href="http://example.com" target="_blank" rel="noopener">http://example.com</a> 到 <a href="http://www.example.com）" target="_blank" rel="noopener">http://www.example.com）</a><br>5.浏览器跟踪重定向地址<br>6.服务器处理请求<br>7.服务器返回一个 HTTP 响应<br>8.浏览器显示 HTML<br>9.浏览器发送请求获取嵌入在 HTML 中的资源（如图片、音频、视频、CSS、JS等等）<br>10.浏览器发送异步请求</p>
+<h2 id="URL-到底是啥"><a href="#URL-到底是啥" class="headerlink" title="URL 到底是啥"></a>URL 到底是啥</h2><p>URL（Uniform Resource Locator），统一资源定位符，用于定位互联网上资源，俗称网址。</p>
+<p><code>scheme://host.domain:port/path/filename</code><br>各部分解释如下：<br>scheme - 定义因特网服务的类型。常见的协议有 http、https、ftp、file，其中最常见的类型是 http，而 https 则是进行加密的网络传输。<br>host - 定义域主机（http 的默认主机是 www）<br>domain - 定义因特网域名，比如 w3school.com.cn<br>port - 定义主机上的端口号（http 的默认端口号是 80）<br>path - 定义服务器上的路径（如果省略，则文档必须位于网站的根目录中）。<br>filename - 定义文档/资源的名称</p>
+<h2 id="讲tcp-ip网络层、三次握手，为什么不能两次握手"><a href="#讲tcp-ip网络层、三次握手，为什么不能两次握手" class="headerlink" title="讲tcp/ip网络层、三次握手，为什么不能两次握手"></a>讲tcp/ip网络层、三次握手，为什么不能两次握手</h2><blockquote>
+<p>客服端和服务端在进行http请求和返回的工程中，需要创建一个TCP connection（由客户端发起）,http不存在连接这个概念，它只有请求和响应。请求和响应都是数据包，它们之间的传输通道就是TCP connection。</p>
+</blockquote>
+<p>位码即tcp标志位，有6种标示：SYN(synchronous建立联机) ACK(acknowledgement 确认) PSH(push传送) FIN(finish结束) RST(reset重置) URG(urgent紧急)Sequence number(顺序号码) Acknowledge number(确认号码)</p>
+<p>第一次握手：主机A发送位码为syn＝1，随机产生seq number=1234567的数据包到服务器，主机B由SYN=1知道，A要求建立联机；（第一次握手，由浏览器发起，告诉服务器我要发送请求了）</p>
+<p>第二次握手：主机B收到请求后要确认联机信息，向A发送ack number=(主机A的seq+1)，syn=1，ack=1，随机产生seq=7654321的包；（第二次握手，由服务器发起，告诉浏览器我准备接受了，你赶紧发送吧）</p>
+<p>第三次握手：主机A收到后检查ack number是否正确，即第一次发送的seq number+1，以及位码ack是否为1，若正确，主机A会再发送ack number=(主机B的seq+1)，ack=1，主机B收到后确认seq值与ack=1则连接建立成功；（第三次握手，由浏览器发送，告诉服务器，我马上就发了，准备接受吧）</p>
+<blockquote>
+<p>谢希仁著《计算机网络》中讲“三次握手”的目的是“为了防止已失效的连接请求报文段突然又传送到了服务端，因而产生错误。</p>
+</blockquote>
+<p>这种情况是：一端(client)A发出去的第一个连接请求报文并没有丢失，而是因为某些未知的原因在某个网络节点上发生滞留，导致延迟到连接释放以后的某个时间才到达另一端(server)B。本来这是一个早已失效的报文段，但是B收到此失效的报文之后，会误认为是A再次发出的一个新的连接请求，于是B端就向A又发出确认报文，表示同意建立连接。如果不采用“三次握手”，那么只要B端发出确认报文就会认为新的连接已经建立了，但是A端并没有发出建立连接的请求，因此不会去向B端发送数据，B端没有收到数据就会一直等待，这样B端就会白白浪费掉很多资源。如果采用“三次握手”的话就不会出现这种情况，B端收到一个过时失效的报文段之后，向A端发出确认，此时A并没有要求建立连接，所以就不会向B端发送确认，这个时候B端也能够知道连接没有建立。</p>
+<p>问题的本质是，信道是不可靠的，但是我们要建立可靠的连接发送可靠的数据，也就是数据传输是需要可靠的。在这个时候三次握手是一个理论上的最小值，并不是说是tcp协议要求的，而是为了满足在不可靠的信道上传输可靠的数据所要求的。</p>
+<p>这个网上转载的例子不错：</p>
+<p>三次握手：<br>A:“喂，你听得到吗？”A-&gt;SYN_SEND<br>B:“我听得到呀，你听得到我吗？”应答与请求同时发出 B-&gt;SYN_RCVD | A-&gt;ESTABLISHED<br>A:“我能听到你，今天balabala……”B-&gt;ESTABLISHED</p>
+<p>四次挥手：<br>A:“喂，我不说了。”A-&gt;FIN_WAIT1<br>B:“我知道了。等下，上一句还没说完。Balabala…..”B-&gt;CLOSE_WAIT | A-&gt;FIN_WAIT2<br>B:”好了，说完了，我也不说了。”B-&gt;LAST_ACK<br>A:”我知道了。”A-&gt;TIME_WAIT | B-&gt;CLOSED<br>A等待2MSL,保证B收到了消息,否则重说一次”我知道了”,A-&gt;CLOSE</p>
+<h2 id="iframe有那些缺点？"><a href="#iframe有那些缺点？" class="headerlink" title="iframe有那些缺点？"></a>iframe有那些缺点？</h2><p>1.iframe会阻塞主页面的Onload事件；<br>2.搜索引擎的检索程序无法解读这种页面，不利于SEO;<br>3.iframe和主页面共享连接池，而浏览器对相同域的连接有限制，所以会影响页面的并行加载。<br>4.使用iframe之前需要考虑这两个缺点。如果需要使用iframe，最好是通过javascript动态给iframe添加src属性值，这样可以绕开以上两个问题</p>
+<h2 id="websocket握手过程"><a href="#websocket握手过程" class="headerlink" title="websocket握手过程"></a>websocket握手过程</h2><p>在实现websocket连线过程中，需要通过浏览器发出websocket连线请求，然后服务器发出回应，这个过程通常称为“握手” (handshaking)。</p>
+<p>客户端请求web socket连接时，会向服务器端发送握手请求</p>
+<p>请求头大致内容:</p>
+<blockquote>
+<p>请求包说明：</p>
+<ul>
+<li>必须是有效的http request 格式；</li>
+<li>HTTP request method 必须是GET，协议应不小于1.1 如： Get / HTTP/1.1；</li>
+<li>必须包括Upgrade头域，并且其值为”websocket”;</li>
+<li>必须包括”Connection” 头域，并且其值为”Upgrade”;</li>
+<li>必须包括”Sec-WebSocket-Key”头域，其值采用base64编码的随机16字节长的字符序列;</li>
+<li>如果请求来自浏览器客户端，还必须包括Origin头域 。 该头域用于防止未授权的跨域脚本攻击，服务器可以从Origin决定是否接受该WebSocket连接;</li>
+<li>必须包括”Sec-webSocket-Version” 头域，当前值必须是13;</li>
+<li>可能包括”Sec-WebSocket-Protocol”，表示client（应用程序）支持的协议列表，server选择一个或者没有可接受的协议响应之;</li>
+<li>可能包括”Sec-WebSocket-Extensions”， 协议扩展， 某类协议可能支持多个扩展，通过它可以实现协议增强;</li>
+<li>可能包括任意其他域，如cookie.</li>
+</ul>
+</blockquote>
+<p>服务端响应如下:</p>
+<blockquote>
+<p>应答包说明：</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>必须包括Upgrade头域，并且其值为”websocket”; 必须包括Connection头域，并且其值为”Upgrade”;</li>
+<li>必须包括Sec-WebSocket-Accept头域，其值是将请求包“Sec-WebSocket-Key”的值，与”258EAFA5-E914-47DA-95CA-C5AB0DC85B11″这个字符串进行拼接，然后对拼接后的字符串进行sha-1运算，再进行base64编码，就是“Sec-WebSocket-Accept”的值； 应答包中冒号后面有一个空格；</li>
+<li>最后需要两个空行作为应答包结束</li>
+</ul>
+</blockquote>
+<p>参考链接：</p>
+<p><a href="https://yq.aliyun.com/articles/229594" target="_blank" rel="noopener">Websocket协议之握手连接</a></p>
+<h2 id="跨域以及解决办法"><a href="#跨域以及解决办法" class="headerlink" title="跨域以及解决办法"></a>跨域以及解决办法</h2><ul>
+<li><p>同源<br>符合”协议+域名+端口”三者相同，就是同源</p>
+</li>
+<li><p>同源策略<br>同源策略，其初衷是为了浏览器的安全性，通过以下三种限制，保证浏览器不易受到XSS、CSFR等攻击。</p>
+<ul>
+<li>Cookie、LocalStorage 和 IndexDB 无法读取</li>
+<li>DOM 和 Js对象无法获得</li>
+<li>AJAX 请求不能发送</li>
+<li>跨域解决方案</li>
+</ul>
+</li>
+<li><p>通过jsonp跨域</p>
+<ul>
+<li>document.domain + iframe跨域</li>
+<li>location.hash + iframe</li>
+<li>window.name + iframe跨域</li>
+<li>postMessage跨域</li>
+<li>跨域资源共享（CORS）</li>
+<li>nginx代理跨域</li>
+<li>nodejs中间件代理跨域</li>
+<li>WebSocket协议跨域</li>
+</ul>
+</li>
+</ul>
+<h2 id="前端持久化的方式、区别"><a href="#前端持久化的方式、区别" class="headerlink" title="前端持久化的方式、区别"></a>前端持久化的方式、区别</h2><p>最容易想到的解决方案是：</p>
+<p>1.使用前端cookie技术来保存本地化数据，如jquery.cookie.js；<br>2.使用html5提供的Web Storage技术来提供解决方案；</p>
+<p>用cookie存储永久数据存在以下几个问题：<br>1.大小：cookie的大小被限制在4KB。<br>2.带宽：cookie是随HTTP事务一起被发送的，因此会浪费一部分发送cookie时使用的带宽。<br>3.复杂性：要正确的操纵cookie是很困难的。</p>
+<p>针对这些问题，在HTML5中，重新提供了一种在客户端本地保存数据的功能，它就是Web Storage。<br>具体来说，Web Storage又分为两种：<br>1.sessionStorage：将数据保存在session对象中。所谓session，是指用户在浏览某个网站时，从进入网站到浏览器关闭所经过的这段时间，也就是用户浏览这个网站所花费的时间。session对象可以用来保存在这段时间内所要求保存的任何数据。<br>2.localStorage：将数据保存在客户端本地的硬件设备(通常指硬盘，也可以是其他硬件设备)中，即使浏览器被关闭了，该数据仍然存在，下次打开浏览器访问网站时仍然可以继续使用。</p>
+<p>这两者的区别在于，sessionStorage为临时保存，而localStorage为永久保存。</p>
+<p><a href="http://www.cnblogs.com/DevinnZ/p/6752574.html" target="_blank" rel="noopener">前端持久化–evercookie</a></p>
+<h2 id="介绍http2-0"><a href="#介绍http2-0" class="headerlink" title="介绍http2.0"></a>介绍http2.0</h2><ul>
+<li>所有数据以二进制传输。HTTP1.x是基于文本的，无法保证健壮性，HTTP2.0绝对使用新的二进制格式，方便且健壮</li>
+<li>同一个连接里面发送多个请求不再需要按照顺序来</li>
+<li>头信息压缩以及推送等提高效率的功能<br><a href="https://www.jdon.com/dl/http2.html" target="_blank" rel="noopener">Http 2.0协议简介</a><br><a href="http://www.513bk.com/xdjq/1159147.html#top" target="_blank" rel="noopener">HTTP 2.0 详细介绍，http2.0详细介绍</a><br><a href="https://www.zhihu.com/question/34074946" target="_blank" rel="noopener">HTTP/2.0 相比1.0有哪些重大改进</a></li>
+</ul>
+<h2 id="通过什么做到并发请求"><a href="#通过什么做到并发请求" class="headerlink" title="通过什么做到并发请求"></a>通过什么做到并发请求</h2><p>我能想到的只有<code>Promise.all()</code>,欢迎补充</p>
+<h2 id="b和strong的区别"><a href="#b和strong的区别" class="headerlink" title="b和strong的区别"></a>b和strong的区别</h2><p><code>&lt;b&gt;</code> 粗体文本，<code>&lt;strong&gt;</code> 用于强调文本,他们的样式是一样的<br>有一种说法，是<code>&lt;strong&gt;</code>貌似在盲人用的机器上会读两遍。因为没有对应的测试条件，所以没做验证。</p>
+<h2 id="Access-Control-Allow-Origin在服务端哪里配置"><a href="#Access-Control-Allow-Origin在服务端哪里配置" class="headerlink" title="Access-Control-Allow-Origin在服务端哪里配置"></a>Access-Control-Allow-Origin在服务端哪里配置</h2><p><code>header(&#39;Access-Control-Allow-Origin:*&#39;);</code></p>
+<h2 id="csrf跨站攻击怎么解决"><a href="#csrf跨站攻击怎么解决" class="headerlink" title="csrf跨站攻击怎么解决"></a>csrf跨站攻击怎么解决</h2><p>CSRF，全称为Cross-Site Request Forgery，跨站请求伪造，是一种网络攻击方式，它可以在用户毫不知情的情况下，以用户的名义伪造请求发送给被攻击站点，从而在未授权的情况下进行权限保护内的操作。</p>
+<p>具体来讲，可以这样理解CSRF。攻击者借用用户的名义，向某一服务器发送恶意请求，对服务器来讲，这一请求是完全合法的，但攻击者确完成了一个恶意操作，比如以用户的名义发送邮件，盗取账号，购买商品等等</p>
+<p>一般网站防御CSRF攻击的方案:<br>(1)验证token值。<br>(2)验证HTTP头的Referer。<br>(3)在HTTP头中自定义属性并验证<br>(4)服务器端表单hash认证<br>在所有的表单里面随机生成一个hash，server在表单处理时去验证这个hash值是否正确，这样工作量比较大</p>
+<p><a href="https://www.cnblogs.com/xinaixia/p/5852379.html" target="_blank" rel="noopener">CSRF(跨站请求伪造攻击)漏洞详解</a></p>
+<h1 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h1><h2 id="清除浮动的方式"><a href="#清除浮动的方式" class="headerlink" title="清除浮动的方式"></a>清除浮动的方式</h2><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 第一种</span></span><br><span class="line"><span class="selector-class">.ovh</span>&#123;</span><br><span class="line">  <span class="attribute">overflow</span>:hidden;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 第二种</span></span><br><span class="line"><span class="selector-class">.clear</span>&#123;</span><br><span class="line">  <span class="attribute">clear</span>:both;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 第三种</span></span><br><span class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">:after</span>&#123; </span><br><span class="line">　<span class="attribute">content</span>:<span class="string">""</span>;<span class="comment">//设置内容为空</span></span><br><span class="line">　<span class="attribute">height</span>:<span class="number">0</span>;<span class="comment">//高度为0</span></span><br><span class="line">　<span class="attribute">line-height</span>:<span class="number">0</span>;<span class="comment">//行高为0</span></span><br><span class="line">　<span class="attribute">display</span>:block;<span class="comment">//将文本转为块级元素</span></span><br><span class="line">　<span class="attribute">visibility</span>:hidden;<span class="comment">//将元素隐藏</span></span><br><span class="line">　<span class="attribute">clear</span>:both//清除浮动</span><br><span class="line">&#125;</span><br><span class="line">.clearfix&#123;</span><br><span class="line">　zoom:<span class="number">1</span>;为了兼容IE</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>当给父元素设置”overflow:hidden”时，实际上创建了一个超级属性BFC，此超级属性反过来决定了”height:auto”是如何计算的。在“BFC布局规则”中提到：计算BFC的高度时，浮动元素也参与计算。因此，父元素在计算其高度时，加入了浮动元素的高度，“顺便”达成了清除浮动的目标，所以父元素就包裹住了子元素。</p>
+</blockquote>
+<h2 id="BFC是什么"><a href="#BFC是什么" class="headerlink" title="BFC是什么"></a>BFC是什么</h2><p>BFC(Block Formatting Context),块级格式化上下文,是Web页面中盒模型布局的CSS渲染模式。它的定位体系属于常规文档流。</p>
+<blockquote>
+<p>浮动，绝对定位元素，inline-blocks, table-cells, table-captions,和overflow的值不为visible的元素，（除了这个值已经被传到了视口的时候）将创建一个新的块级格式化上下文。</p>
+</blockquote>
+<p>上面的引述几乎总结了一个BFC是怎样形成的。但是让我们以另一种方式来重新定义以便能更好的去理解。一个BFC是一个HTML盒子并且至少满足下列条件中的任何一个：</p>
+<ul>
+<li>float的值不为none</li>
+<li>position的值不为static或者relative</li>
+<li>display的值为 table-cell, table-caption, inline-block, flex, 或者 inline-flex中的其中一个</li>
+<li>overflow的值不为visible </li>
+</ul>
+<h2 id="讲flex，手写出flex常用的属性，并且讲出作用"><a href="#讲flex，手写出flex常用的属性，并且讲出作用" class="headerlink" title="讲flex，手写出flex常用的属性，并且讲出作用"></a>讲flex，手写出flex常用的属性，并且讲出作用</h2><p>这个请看：  </p>
+<h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1><h2 id="js三座大山"><a href="#js三座大山" class="headerlink" title="js三座大山"></a>js三座大山</h2><p>原型与原型链，作用域及闭包，异步和单线程。</p>
+<br>  
+<p><a href="https://yangbo5207.github.io/wutongluo/ji-chu-jin-jie-xi-lie/shi-er-3001-shi-jian-xun-huan-ji-zhi.html" target="_blank" rel="noopener">事件循环机制</a></p>
+<h2 id="bind、call、apply的区别"><a href="#bind、call、apply的区别" class="headerlink" title="bind、call、apply的区别"></a>bind、call、apply的区别</h2><p>1.每个函数都包含两个非继承而来的方法：call()方法和apply()方法。<br>2.相同点：这两个方法的作用是一样的。<br>都是在特定的作用域中调用函数，等于设置函数体内this对象的值，以扩充函数赖以运行的作用域。<br>一般来说，this总是指向调用某个方法的对象，但是使用call()和apply()方法时，就会改变this的指向。<br>3.不同点：接收参数的方式不同。</p>
+<p>apply()方法 接收两个参数，一个是函数运行的作用域（this），另一个是参数数组。<br>语法：apply([thisObj [,argArray] ]);，调用一个对象的一个方法，2另一个对象替换当前对象。<br>说明：如果argArray不是一个有效数组或不是arguments对象，那么将导致一个TypeError，如果没有提供argArray和thisObj任何一个参数，那么Global对象将用作thisObj。<br>call()方法 第一个参数和apply()方法的一样，但是传递给函数的参数必须列举出来。<br>语法：call([thisObject[,arg1 [,arg2 [,…,argn]]]]);，应用某一对象的一个方法，用另一个对象替换当前对象。<br>说明： call方法可以用来代替另一个对象调用一个方法，call方法可以将一个函数的对象上下文从初始的上下文改变为thisObj指定的新对象，如果没有提供thisObj参数，那么Global对象被用于thisObj。</p>
+<p>bind和call、apply最大的区别就是，call、apply不仅改变this的指向，还会直接支持代码，而bind不会。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> cat = &#123;</span><br><span class="line">  name: <span class="string">'咪咪'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">beatTheMonster</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">&#125;</span><br><span class="line">beatTheMonster.call(cat);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1.call 改变了this的指向。改变到了cat上。</span></span><br><span class="line"><span class="comment">// 2.beatTheMonster函数/方法执行了</span></span><br><span class="line"><span class="comment">// 3.bind()，保存了方法，并没有直接调用它</span></span><br></pre></td></tr></table></figure>
+<p>原文链接：<a href="https://finget.github.io/2019/01/15/interview-questions/" target="_blank" rel="noopener">https://finget.github.io/2019/01/15/interview-questions/</a></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;margin-top:50px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端面试题/" rel="tag"><i class="fa fa-tag"></i> 前端面试题</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/09/21/前端/杂记/前端面试题2/" rel="next" title="前端面试题2">
+                <i class="fa fa-chevron-left"></i> 前端面试题2
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/09/21/前端/杂记/作用域和闭包/" rel="prev" title="作用域和闭包">
+                作用域和闭包 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/杂记/one.jpg" alt="只有极其努力，才能看起来毫不费力。">
+            
+              <p class="site-author-name" itemprop="name">只有极其努力，才能看起来毫不费力。</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">46</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://15735046155.github.io/" title="GitHub &rarr; https://15735046155.github.io/" rel="noopener" target="_blank"><i class="fa fa-fw fa-globe"></i>GitHub</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前端"><span class="nav-number">1.</span> <span class="nav-text">前端</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#前端性能优化"><span class="nav-number">1.1.</span> <span class="nav-text">前端性能优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一个页面从输入-URL-到页面加载显示完成，这个过程中都发生了什么？"><span class="nav-number">1.2.</span> <span class="nav-text">一个页面从输入 URL 到页面加载显示完成，这个过程中都发生了什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#URL-到底是啥"><span class="nav-number">1.3.</span> <span class="nav-text">URL 到底是啥</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#讲tcp-ip网络层、三次握手，为什么不能两次握手"><span class="nav-number">1.4.</span> <span class="nav-text">讲tcp/ip网络层、三次握手，为什么不能两次握手</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iframe有那些缺点？"><span class="nav-number">1.5.</span> <span class="nav-text">iframe有那些缺点？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#websocket握手过程"><span class="nav-number">1.6.</span> <span class="nav-text">websocket握手过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#跨域以及解决办法"><span class="nav-number">1.7.</span> <span class="nav-text">跨域以及解决办法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前端持久化的方式、区别"><span class="nav-number">1.8.</span> <span class="nav-text">前端持久化的方式、区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍http2-0"><span class="nav-number">1.9.</span> <span class="nav-text">介绍http2.0</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通过什么做到并发请求"><span class="nav-number">1.10.</span> <span class="nav-text">通过什么做到并发请求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b和strong的区别"><span class="nav-number">1.11.</span> <span class="nav-text">b和strong的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Access-Control-Allow-Origin在服务端哪里配置"><span class="nav-number">1.12.</span> <span class="nav-text">Access-Control-Allow-Origin在服务端哪里配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#csrf跨站攻击怎么解决"><span class="nav-number">1.13.</span> <span class="nav-text">csrf跨站攻击怎么解决</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS"><span class="nav-number">2.</span> <span class="nav-text">CSS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#清除浮动的方式"><span class="nav-number">2.1.</span> <span class="nav-text">清除浮动的方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BFC是什么"><span class="nav-number">2.2.</span> <span class="nav-text">BFC是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#讲flex，手写出flex常用的属性，并且讲出作用"><span class="nav-number">2.3.</span> <span class="nav-text">讲flex，手写出flex常用的属性，并且讲出作用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript"><span class="nav-number">3.</span> <span class="nav-text">JavaScript</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#js三座大山"><span class="nav-number">3.1.</span> <span class="nav-text">js三座大山</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bind、call、apply的区别"><span class="nav-number">3.2.</span> <span class="nav-text">bind、call、apply的区别</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2023</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-snowflake-o"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">只有极其努力，才能看起来毫不费力。</span>
+
+  
+
+  
+</div>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i>
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</div>
+
+<span class="post-meta-divider">|</span>
+
+<div class="powered-by">
+<i class="fa fa-eye"></i>
+  本站总访问量:<span id="busuanzi_value_site_pv"></span>
+</div>
+
+<!--
+
+-->
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.1"></script>
+
+  <script src="/js/motion.js?v=7.1.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.1"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+<script>
+  $('.highlight').not('.gist .highlight').each(function(i, e) {
+    var $wrap = $('<div>').addClass('highlight-wrap');
+    $(e).after($wrap);
+    $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function(e) {
+      var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+        return $(e).text();
+      }).toArray().join('\n');
+      var ta = document.createElement('textarea');
+      var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+      ta.style.top = yPosition + 'px'; // Prevent page scroll
+      ta.style.position = 'absolute';
+      ta.style.opacity = '0';
+      ta.readOnly = true;
+      ta.value = code;
+      document.body.appendChild(ta);
+      ta.select();
+      ta.setSelectionRange(0, code.length);
+      ta.readOnly = false;
+      var result = document.execCommand('copy');
+      
+        if (result) $(this).text('复制成功');
+        else $(this).text('复制失败');
+      
+      ta.blur(); // For iOS
+      $(this).blur();
+    })).on('mouseleave', function(e) {
+      var $b = $(this).find('.copy-btn');
+      setTimeout(function() {
+        $b.text('复制');
+      }, 300);
+    }).append(e);
+  })
+</script>
+
+
+  
+
+  
+
+
+  
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
