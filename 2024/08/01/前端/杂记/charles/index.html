@@ -1,0 +1,1569 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="charles使用">
+<meta name="keywords" content="记录篇">
+<meta property="og:type" content="article">
+<meta property="og:title" content="charles">
+<meta property="og:url" content="http://yoursite.com/2024/08/01/前端/杂记/charles/index.html">
+<meta property="og:site_name" content="coder">
+<meta property="og:description" content="charles使用">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/images/杂记/sy/charles-1.awebp">
+<meta property="og:image" content="http://yoursite.com/images/杂记/sy/charles-2.awebp">
+<meta property="og:image" content="http://yoursite.com/images/杂记/sy/charles-3.awebp">
+<meta property="og:image" content="http://yoursite.com/images/杂记/sy/charles-4.awebp">
+<meta property="og:image" content="http://yoursite.com/images/杂记/sy/charles-5.awebp">
+<meta property="og:image" content="http://yoursite.com/images/杂记/sy/charles-6.awebp">
+<meta property="og:image" content="http://yoursite.com/images/杂记/sy/charles-7.awebp">
+<meta property="og:image" content="http://yoursite.com/images/杂记/sy/charles-8.awebp">
+<meta property="og:image" content="http://yoursite.com/images/杂记/sy/charles-9.awebp">
+<meta property="og:image" content="http://yoursite.com/images/杂记/sy/charles-10.awebp">
+<meta property="og:image" content="http://yoursite.com/images/杂记/sy/charles-11.awebp">
+<meta property="og:image" content="http://yoursite.com/images/杂记/sy/charles-12.awebp">
+<meta property="og:updated_time" content="2024-08-01T08:37:12.325Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="charles">
+<meta name="twitter:description" content="charles使用">
+<meta name="twitter:image" content="http://yoursite.com/images/杂记/sy/charles-1.awebp">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2024/08/01/前端/杂记/charles/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>charles | coder</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://15735046155.github.io/" class="github-corner" aria-label="View source on GitHub"><svg width="87" height="87" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">coder</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2024/08/01/前端/杂记/charles/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="只有极其努力，才能看起来毫不费力。">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/杂记/one.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="coder">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">charles
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2024-08-01 17:00:00 / 修改时间：16:37:12" itemprop="dateCreated datePublished" datetime="2024-08-01T17:00:00+08:00">2024-08-01</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/记录篇/" itemprop="url" rel="index"><span itemprop="name">记录篇</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+            <div class="post-description">charles使用</div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Charles-功能介绍和使用教程"><a href="#Charles-功能介绍和使用教程" class="headerlink" title="Charles 功能介绍和使用教程"></a>Charles 功能介绍和使用教程</h1><p><img src="/images/杂记/sy/charles-1.awebp" alt></p>
+<h2 id="Charles-简介"><a href="#Charles-简介" class="headerlink" title="Charles 简介"></a>Charles 简介</h2><p>Charles 是在 PC 端常用的网络封包截取工具，在做移动开发时，我们为了调试与服务器端的网络通讯协议，常常需要截取网络封包来分析。除了在做移动开发中调试端口外，Charles 也可以用于分析第三方应用的通讯协议。配合 Charles 的 SSL 功能，Charles 还可以分析 Https 协议。</p>
+<p>Charles 通过将自己设置成系统的网络访问代理服务器，使得所有的网络访问请求都通过它来完成，从而实现了网络封包的截取和分析。</p>
+<blockquote>
+<p>Charles 是收费软件，可以免费试用 30 天。试用期过后，未付费的用户仍然可以继续使用，但是每次使用时间不能超过 30 分钟，并且启动时将会有 10 秒种的延时。因此，该付费方案对广大用户还是相当友好的，即使你长期不付费，也能使用完整的软件功能。只是当你需要长时间进行封包调试时，会因为 Charles 强制关闭而遇到影响。</p>
+</blockquote>
+<p><strong>方法你懂的</strong></p>
+<p>Charles 主要的功能包括：</p>
+<ul>
+<li>截取 Http 和 Https 网络封包。</li>
+<li>支持重发网络请求，方便后端调试。</li>
+<li>支持修改网络请求参数。</li>
+<li>支持网络请求的截获并动态修改。</li>
+<li>支持模拟慢速网络。</li>
+</ul>
+<h2 id="下载安装-Charles"><a href="#下载安装-Charles" class="headerlink" title="下载安装 Charles"></a>下载安装 Charles</h2><p><img src="/images/杂记/sy/charles-2.awebp" alt>Charles 支持的操作系统包括：</p>
+<ul>
+<li>Windows 64 bit(msi)</li>
+<li>Windows 32 bit(msi)</li>
+<li>macOS(dmg)</li>
+<li>Linux 64 bit(tar.gz)</li>
+<li>Linux 32 bit(tar.gz)</li>
+</ul>
+<p>打开浏览器访问 <a href="https://link.juejin.cn/?target=https%3A%2F%2Fwww.charlesproxy.com%2F" title="https://www.charlesproxy.com/" target="_blank" rel="noopener">Charles 官网</a> ，下载相应系统的 <a href="https://link.juejin.cn/?target=https%3A%2F%2Fwww.charlesproxy.com%2Fdownload%2F" title="https://www.charlesproxy.com/download/" target="_blank" rel="noopener">Charles 安装包</a>，然后安装即可：</p>
+<ul>
+<li><strong>Windows：</strong> 运行安装应用程序以在程序菜单中安装 Charles。</li>
+<li><strong>Mac OS X：</strong> 通过双击解压缩下载文件，然后将 Charles 应用程序复制到 Applications 目录中。</li>
+<li><strong>Linux：</strong> Charles 拥有 <a href="https://link.juejin.cn/?target=https%3A%2F%2Fwww.charlesproxy.com%2Fdocumentation%2Finstallation%2Fapt-repository%2F" title="https://www.charlesproxy.com/documentation/installation/apt-repository/" target="_blank" rel="noopener">APT</a> 和 <a href="https://link.juejin.cn/?target=https%3A%2F%2Fwww.charlesproxy.com%2Fdocumentation%2Finstallation%2Fyum-repository%2F" title="https://www.charlesproxy.com/documentation/installation/yum-repository/" target="_blank" rel="noopener">YUM</a> 存储库，如果你有基于 <code>Debian</code> 或基于 <code>Red Hat</code> 的 Linux 发行版，这是安装 Charles 的首选方法。否则，将 <code>tar.gz</code> 文件解压缩到适当的站点。如果您以前安装过 Charles 并且正在进行升级；首先确保 Charles 没有运行，然后安装或复制在以前安上。通过运行 <code>bin/charles</code> 脚本启动 Charles。</li>
+</ul>
+<blockquote>
+<p>如果使用 Firefox，也可以下载 Firefox 插件。参考<a href="https://link.juejin.cn/?target=https%3A%2F%2Fwww.charlesproxy.com%2Fdocumentation%2Fconfiguration%2Fbrowser-and-system-configuration%2F" title="https://www.charlesproxy.com/documentation/configuration/browser-and-system-configuration/" target="_blank" rel="noopener">Firefox Add-On</a></p>
+</blockquote>
+<h2 id="Charles-主界面介绍"><a href="#Charles-主界面介绍" class="headerlink" title="Charles 主界面介绍"></a>Charles 主界面介绍</h2><p>Charles 的主界面视图如下图所示：</p>
+<p><img src="/images/杂记/sy/charles-3.awebp" alt></p>
+<h3 id="工具导航栏"><a href="#工具导航栏" class="headerlink" title="工具导航栏"></a>工具导航栏</h3><p>Charles 顶部为菜单导航栏，菜单导航栏下面为工具导航栏。视图如下图所示：</p>
+<p><img src="/images/杂记/sy/charles-4.awebp" alt>工具导航栏中提供了几种常用工具：</p>
+<ul>
+<li>清除捕获到的所有请求</li>
+<li>红点状态说明正在捕获请求，灰色状态说明目前没有捕获请求。</li>
+<li>灰色状态说明是没有开启网速节流，绿色状态说明开启了网速节流。</li>
+<li>灰色状态说明是没有开启断点，红色状态说明开启了断点。</li>
+<li>编辑修改请求，点击之后可以修改请求的内容。</li>
+<li>重复发送请求，点击之后选中的请求会被再次发送。</li>
+<li>验证选中的请求的响应。</li>
+<li>常用功能，包含了 Tools 菜单中的常用功能。</li>
+<li>常用设置，包含了 Proxy 菜单中的常用设置。</li>
+</ul>
+<h3 id="主界面视图"><a href="#主界面视图" class="headerlink" title="主界面视图"></a>主界面视图</h3><p>Charles 主要提供两种查看封包的视图，分别名为 <code>Structure</code> 和 <code>Sequence</code>。</p>
+<ul>
+<li><strong>Structure</strong>： 此视图将网络请求按访问的域名分类。</li>
+<li><strong>Sequence</strong>： 此视图将网络请求按访问的时间排序。</li>
+</ul>
+<p>使用时可以根据具体的需要在这两种视图之前来回切换。请求多了有些时候会看不过来，Charles 提供了一个简单的 <code>Filter</code> 功能，可以输入关键字来快速筛选出 URL 中带指定关键字的网络请求。</p>
+<blockquote>
+<p>对于某一个具体的网络请求，你可以查看其详细的请求内容和响应内容。如果请求内容是 POST 的表单，Charles 会自动帮你将表单进行分项显示。如果响应内容是 JSON 格式的，那么 Charles 可以自动帮你将 JSON 内容格式化，方便你查看。如果响应内容是图片，那么 Charles 可以显示出图片的预览。</p>
+</blockquote>
+<h2 id="Charles-菜单介绍"><a href="#Charles-菜单介绍" class="headerlink" title="Charles 菜单介绍"></a>Charles 菜单介绍</h2><p>Charles 的主菜单包括：<code>File</code>、<code>Edit</code>、<code>View</code>、<code>Proxy</code>、<code>Tools</code>、<code>Window</code>、<code>Help</code>。用的最多的主菜单分别是 <code>Proxy</code> 和 <code>Tools</code>。</p>
+<h3 id="Proxy-菜单"><a href="#Proxy-菜单" class="headerlink" title="Proxy 菜单"></a>Proxy 菜单</h3><p>Charles 是一个 HTTP 和 SOCKS 代理服务器。代理请求和响应使 Charles 能够在请求从客户端传递到服务器时检查和更改请求，以及从服务器传递到客户端时的响应。下面主要介绍 Charles 提供的一些代理功能。Proxy 菜单的视图如下图所示：</p>
+<p><img src="/images/杂记/sy/charles-5.awebp" alt><br>Proxy 菜单包含以下功能：</p>
+<ul>
+<li>Start/Stop Recording：开始/停止记录会话。</li>
+<li>Start/Stop Throttling：开始/停止节流。</li>
+<li>Enable/Disable Breakpoints：开启/关闭断点模式。</li>
+<li>Recording Settings：记录会话设置。</li>
+<li>Throttle Settings：节流设置。</li>
+<li>Breakpoint Settings：断点设置。</li>
+<li>Reverse Proxies Settings：反向代理设置。</li>
+<li>Port Forwarding Settings：端口转发。</li>
+<li>Windows Proxy：记录计算机上的所有请求。</li>
+<li>Proxy Settings：代理设置。</li>
+<li>SSL Proxying Settings：SSL 代理设置。</li>
+<li>Access Control Settings：访问控制设置。</li>
+<li>External Proxy Settings：外部代理设置。</li>
+<li>Web Interface Settings：Web 界面设置。</li>
+</ul>
+<h4 id="Recording-Settings-记录会话设置"><a href="#Recording-Settings-记录会话设置" class="headerlink" title="Recording Settings(记录会话设置)"></a>Recording Settings(记录会话设置)</h4><p>Recording Settings 和 Start/Stop Recording 配合使用，在 Start Recording 的状态下，可以通过 Recording Settings 配置 Charles 的会话记录行为。Recording Settings 的视图如下图所示：</p>
+<p><img src="/images/杂记/sy/charles-6.awebp" alt>Recording Settings 有 <code>Options</code>、<code>Include</code>、<code>Exclude</code> 三个选项卡：</p>
+<ul>
+<li>Options：通过 Recording Size Limits 限制记录数据的大小。当 Charles 记录时，请求、响应头和响应体存储在内存中，或写入磁盘上的临时文件。有时，内存中的数据量可能会变得太多，Charles 会通知您并停止录制。在这种情况下，您应该清除 Charles 会话以释放内存，然后再次开始录制。在录制设置中，您可以限制 Charles 将记录的最大大小; 这根本不会影响你的浏览，Charles 仅会停止录制。</li>
+<li>Include：只有与配置的地址匹配的请求才会被录制。</li>
+<li>Exclude：只有与配置的地址匹配的请求将不会被录制。</li>
+</ul>
+<p><code>Include</code> 和 <code>Exclude</code> 选项卡的操作相同，选择 <code>Add</code>，然后填入需要监控的Procotol、Host 和 Port等信息，这样就达到了过滤的目的。如下图所示：</p>
+<p><img src="/images/杂记/sy/charles-7.awebp" alt>还有一种方法就是在一个请求网址上右击选择 <code>Focus</code>，然后其他的请求就会被放到一个叫 <code>Other Host</code> 的分类里面，这样也达到了过滤的目的。</p>
+<h4 id="Throttle-Settings-节流设置"><a href="#Throttle-Settings-节流设置" class="headerlink" title="Throttle Settings(节流设置)"></a>Throttle Settings(节流设置)</h4><p>Throttle Settings 和 Start/Stop Throttling 配合使用，在 Start Throttling 的状态下，可以通过 Throttle Settings 配置 Charles 的网速模拟配置。Throttle Settings 的视图如下图所示：</p>
+<p><img src="/images/杂记/sy/charles-8.awebp" alt>勾选 Enable Throttling 启用网速模拟配置，在 Throttle Preset 下选择网络类型即可，具体设置可以根据实际情况自行设置。如果只想模拟指定网站的慢速网络，可以再勾选上图中的 <code>Only for selected hosts</code> 项，然后在对话框的下半部分设置中增加指定的 hosts 项即可。</p>
+<p>Throttle Settings 视图中的选项含义如下：</p>
+<ul>
+<li>Bandwidth：带宽</li>
+<li>Utilistation：利用百分比</li>
+<li>Round-trip：往返延迟</li>
+<li>MTU：字节</li>
+</ul>
+<h4 id="Breakpoint-Settings-断点设置"><a href="#Breakpoint-Settings-断点设置" class="headerlink" title="Breakpoint Settings(断点设置)"></a>Breakpoint Settings(断点设置)</h4><p>Breakpoint Settings 和 Enable/Disable Breakpoints 配合使用，在 Enable Breakpoints 的状态下，可以通过 Breakpoint Settings 配置 Charles 的断点模式。Breakpoint Settings 的视图如下图所示：</p>
+<p><img src="/images/杂记/sy/charles-9.awebp" alt>勾选 Enable Breakpoints 启用断点模式，选择 <code>Add</code>，然后填入需要监控的Scheme、Procotol、Host 和 Port 等信息，这样就达到了设置断点的目的。然后可以来观察或者修改请求或者返回的内容，但是在这过程中需要注意请求的超时时间问题。或者可以在某个想要设置断点的请求网址上右击选择 Breakpoints 来设置断点。</p>
+<h4 id="Reverse-Proxies-Settings-反向代理设置"><a href="#Reverse-Proxies-Settings-反向代理设置" class="headerlink" title="Reverse Proxies Settings(反向代理设置)"></a>Reverse Proxies Settings(反向代理设置)</h4><p>反向代理在本地端口上创建 Web 服务器，该端口透明地将请求代理给远程 Web 服务器。反向代理上的所有请求和响应都可以记录在 Charles 中。</p>
+<p>如果您的客户端应用程序不支持使用 HTTP 代理，或者您希望避免将其配置为使用代理，那么反向代理很有用。创建原始目标 Web 服务器的反向代理，然后将客户端应用程序连接到本地端口； 反向代理对客户端应用程序是透明的，使您可以查看 Charles 以前可能无法访问的流量。</p>
+<p>有关反向代理的更多信息，请访问 <a href="https://link.juejin.cn/?target=http%3A%2F%2Fen.wikipedia.org%2Fwiki%2FReverse_proxy" title="http://en.wikipedia.org/wiki/Reverse_proxy" target="_blank" rel="noopener">Reverse proxy</a></p>
+<h4 id="Port-Forwarding-Settings-端口转发"><a href="#Port-Forwarding-Settings-端口转发" class="headerlink" title="Port Forwarding Settings(端口转发)"></a>Port Forwarding Settings(端口转发)</h4><p>可以将任何 <code>TCP/IP</code> 或 <code>UDP</code> 端口配置为使用 <code>Port Forwarding</code> 工具从 Charles 转发到远程主机。这样可以调试 Charles 中的任何协议。</p>
+<p>在 Macromedia Flash 中调试 XMLSocket 连接时，这尤其有用。</p>
+<p>还可以使用 Charles 作为 SOCKS 代理，因此无需设置端口转发。</p>
+<h4 id="Windows-Proxy-记录计算机上的所有请求"><a href="#Windows-Proxy-记录计算机上的所有请求" class="headerlink" title="Windows Proxy(记录计算机上的所有请求)"></a>Windows Proxy(记录计算机上的所有请求)</h4><p>如果想要抓取电脑端的请求，勾选 Windows Proxy 选项即可；如果只需要抓取手机请求，则取消勾选这个选项。</p>
+<h4 id="Proxy-Settings-代理设置"><a href="#Proxy-Settings-代理设置" class="headerlink" title="Proxy Settings(代理设置)"></a>Proxy Settings(代理设置)</h4><p>Proxy Settings 的视图如下图所示：</p>
+<p><img src="/images/杂记/sy/charles-10.awebp" alt>代理端口默认为 8888(可以修改)，并且勾上 <code>Enable transparent HTTP proxying</code> 就完成了在 Charles 上的代理设置。</p>
+<h4 id="SSL-Proxy-Settings-SSL-代理设置"><a href="#SSL-Proxy-Settings-SSL-代理设置" class="headerlink" title="SSL Proxy Settings(SSL 代理设置)"></a>SSL Proxy Settings(SSL 代理设置)</h4><p>SSL Proxy Settings 的视图如下图所示：</p>
+<p><img src="/images/杂记/sy/charles-11.awebp" alt>勾上 <code>Enable SSL proxying</code> 就完成了在 Charles 上的 SSL 代理设置。之后也可以选择 <code>Add</code>，然后填入需要监控的 Host 和 Port 信息，这样就达到了针对某个域名启用 SSL 代理的目的。</p>
+<h4 id="Access-Control-Settings-访问控制设置"><a href="#Access-Control-Settings-访问控制设置" class="headerlink" title="Access Control Settings(访问控制设置)"></a>Access Control Settings(访问控制设置)</h4><p>Access Control Settings 表示访问控制设置。访问控制列表确定谁可以使用此 Charles 实例。通常，您在自己的计算机上运行 Charles，并且您只打算自己使用它，因此 localhost 始终包含在访问控制列表中。也可以选择 <code>Add</code>，然后填入允许访问的 IP，这样就达到了允许某个 IP 访问 Charles 的目的。</p>
+<h4 id="External-Proxy-Settings-外部代理设置"><a href="#External-Proxy-Settings-外部代理设置" class="headerlink" title="External Proxy Settings(外部代理设置)"></a>External Proxy Settings(外部代理设置)</h4><p>External Proxy Settings 表示外部代理设置。可能在网络上有一个代理服务器，必须使用该代理服务器才能访问 Internet。在这种情况下，需要将 Charles 配置为在尝试访问 Internet 时使用现有代理。</p>
+<p>可以配置单独的代理地址和端口：</p>
+<ul>
+<li>HTTP</li>
+<li>HTTPS</li>
+<li>SOCKS</li>
+</ul>
+<blockquote>
+<p>如果您有 SOCKS 代理，Charles 将把它用于所有非 HTTP(S) 流量，例如端口转发。</p>
+</blockquote>
+<h4 id="Web-Interface-Settings-Web-界面设置"><a href="#Web-Interface-Settings-Web-界面设置" class="headerlink" title="Web Interface Settings(Web 界面设置)"></a>Web Interface Settings(Web 界面设置)</h4><p>Web Interface Settings 表示 Web 界面设置。Charles 有一个 Web 界面，可以让您从浏览器控制 Charles，或使用 Web 界面作为 Web 服务使用外部程序。</p>
+<p>在 External Proxy Settings 视图中勾选 <code>Enable the web interface</code> 选项启用 Web 界面。可以允许匿名访问，也可以配置用户名和密码。还可以通过在配置使用 Charles 作为其代理的 Web 浏览器中访问 <a href="https://link.juejin.cn/?target=http%3A%2F%2Fcontrol.charles%2F" title="http://control.charles/" target="_blank" rel="noopener"><code>http://control.charles/</code></a> 来访问 Web 界面。</p>
+<p>Web界面提供对以下功能的访问：</p>
+<ul>
+<li><p>节流控制</p>
+<ul>
+<li>激活或停用任何已配置的限制预设</li>
+</ul>
+</li>
+<li><p>录音控制</p>
+<ul>
+<li>开始和停止会话录制</li>
+</ul>
+</li>
+<li><p>工具</p>
+<ul>
+<li>激活和停用工具</li>
+</ul>
+</li>
+<li><p>会话控制</p>
+<ul>
+<li>清除当前会话</li>
+<li>以任何支持的格式导出当前会话</li>
+<li>以 Charles 的本机会话格式下载当前会话</li>
+</ul>
+</li>
+<li>退出查尔斯</li>
+</ul>
+<p>通过检查 Web 界面 HTML ，您可以推导出如何将其用作 Web 服务来自动化 Charles。</p>
+<h3 id="Tools-菜单"><a href="#Tools-菜单" class="headerlink" title="Tools 菜单"></a>Tools 菜单</h3><p>Charles 是一个 HTTP 和 SOCKS 代理服务器，所有的请求都会经过 Charles。下面主要介绍 Charles 提供的一些实用工具。Tools 菜单的视图如下图所示：</p>
+<p><img src="/images/杂记/sy/charles-12.awebp" alt><br>Tools 菜单包含以下功能：</p>
+<ul>
+<li>No Caching Settings：禁用缓存设置。</li>
+<li>Block Cookies Settings：禁用 Cookie设置。</li>
+<li>Map Remote Settings：远程映射设置。</li>
+<li>Map Local Settings：本地映射设置。</li>
+<li>Rewrite Settings：重写设置。</li>
+<li>Black List Settings：黑名单设置。</li>
+<li>White List Settings：白名单设置。</li>
+<li>DNS Spoofing Settings：DNS 欺骗设置。</li>
+<li>Mirror Settings：镜像设置。</li>
+<li>Auto Save Settings：自动保存设置。</li>
+<li>Client Process Settings：客户端进程设置。</li>
+<li>Compose：编辑修改。</li>
+<li>Repeat：重复发包。</li>
+<li>Repeat Advanced：高级重复发包。</li>
+<li>Validate：验证。</li>
+<li>Publish Gist：发布要点。</li>
+<li>Import/Export Settings：导入/导出设置。</li>
+<li>Profiles：配置文件。</li>
+<li>Publish Gist Settings：发布要点设置。</li>
+</ul>
+<h4 id="No-Caching-Settings-禁用缓存"><a href="#No-Caching-Settings-禁用缓存" class="headerlink" title="No Caching Settings(禁用缓存)"></a>No Caching Settings(禁用缓存)</h4><p>No Caching 工具可防止客户端应用程序（如 Web 浏览器）缓存任何资源。因此，始终向远程网站发出请求，您始终可以看到最新版本。</p>
+<h5 id="适用范围"><a href="#适用范围" class="headerlink" title="适用范围"></a>适用范围</h5><p>该工具可以作用于每个请求(选中 <code>Enable No Caching</code> 即可)，也可以仅对你配置的请求启用(启用 No Caching 的同时，请选中 <code>Only for selected locations</code>)。当用于选定的请求时，可以使用简单但功能强大的模式匹配将工具的效果限制为指定的主机和路径。</p>
+<h5 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h5><p>No Caching 工具通过操纵控制响应缓存的 HTTP 请求头来防止缓存。从请求中删除 If-Modified-Since 和 If-None-Match 请求头，添加 Pragma：no-cache 和 Cache-control：no-cache。从响应中删除 Expires，Last-Modified 和ETag 请求头，添加 Expires：0 和 Cache-Control：no-cache。</p>
+<h4 id="Block-Cookies-Settings-禁用-Cookie"><a href="#Block-Cookies-Settings-禁用-Cookie" class="headerlink" title="Block Cookies Settings(禁用 Cookie)"></a>Block Cookies Settings(禁用 Cookie)</h4><p>Block Cookies 工具阻止了 Cookie 的发送和接收。它可用于测试网站，就像在浏览器中禁用了 Cookie 一样。 请注意，网络爬虫（例如 Google）通常不支持 Cookie，因此该工具还可用于模拟网络爬虫网站的视图。</p>
+<h5 id="适用范围-1"><a href="#适用范围-1" class="headerlink" title="适用范围"></a>适用范围</h5><p>该工具可以作用于每个请求(选中 <code>Enable Block Cookies</code> 即可)，也可以仅对你配置的请求启用(启用 Block Cookies 的同时，请选中 <code>Only for selected locations</code>)。当用于选定的请求时，可以使用简单但功能强大的模式匹配将工具的效果限制为指定的主机和路径。</p>
+<h5 id="工作原理-1"><a href="#工作原理-1" class="headerlink" title="工作原理"></a>工作原理</h5><p>Block Cookies 工具通过操纵控制响应 Cookies 的 HTTP 请求头来禁用 Cookies。从请求中移除 Cookie 请求头，防止 Cookie 值从客户端应用程序（例如 Web 浏览器）发送到远程服务器。从响应中删除 Set-Cookie 请求头，防止请求设置客户端应用程序从远程服务器接收的 Cookie。</p>
+<h4 id="Map-Remote-Settings-远程映射"><a href="#Map-Remote-Settings-远程映射" class="headerlink" title="Map Remote Settings(远程映射)"></a>Map Remote Settings(远程映射)</h4><p>Map Remote 工具根据配置的映射更改请求站点，以便从新站点透明地提供响应，就好像这是原始请求一样。</p>
+<p>通过此映射，您可以从另一个站点提供全部或部分站点。例如：</p>
+<ul>
+<li>可以把 <a href="http://xk72.com/charles/" target="_blank" rel="noopener">xk72.com/charles/</a> 映射到 localhost/charlesdev/ 来为 <a href="http://xk72.com" target="_blank" rel="noopener">xk72.com</a> 提供一个子目录；</li>
+<li>可以把 <a href="http://xk72.com/*.php" target="_blank" rel="noopener">xk72.com/*.php</a> 这种指定后缀的所有文件映射到 localhost/charlesdev/。</li>
+</ul>
+<h5 id="使用建议"><a href="#使用建议" class="headerlink" title="使用建议"></a>使用建议</h5><p>如果您拥有站点的开发版本并且希望能够通过开发提供的某些请求浏览实时站点，则 Map Remote 非常有用。例如，您可能希望从开发服务器提供 css 和 images 目录。使用 <a href="http://live.com/css/" target="_blank" rel="noopener">live.com/css/</a> 等映射到 <a href="http://dev.com/css/" target="_blank" rel="noopener">dev.com/css/</a> 或 <a href="http://live.com/*.css" target="_blank" rel="noopener">live.com/*.css</a> 到 <a href="http://dev.com" target="_blank" rel="noopener">dev.com</a> 。</p>
+<h5 id="映射类型"><a href="#映射类型" class="headerlink" title="映射类型"></a>映射类型</h5><ul>
+<li>可以将目录映射到目录，如 <a href="http://xk72.com/charles/" target="_blank" rel="noopener">xk72.com/charles/</a> 映射到 localhost/charlesdev/；</li>
+<li>可以将文件映射到文件，如 <a href="http://xk72.com/charles/download.php" target="_blank" rel="noopener">xk72.com/charles/download.php</a> 映射到 <a href="http://abc.com/testing/test.html；" target="_blank" rel="noopener">abc.com/testing/test.html；</a></li>
+<li>可以将带有文件模式的目录映射到目录，如 <a href="http://xk72.com/charles/*.php" target="_blank" rel="noopener">xk72.com/charles/*.php</a> 到 localhost/charlesdev/；</li>
+<li>如果在目标映射中未指定路径，则 URL 的路径部分将不会更改。如果要映射到根目录，请在目标路径字段中已 <code>/</code> 结尾。</li>
+</ul>
+<h5 id="HTTPS"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS</h5><p>Map Remote 工具可以将 HTTP 请求映射到 HTTPS 目标，反之亦然，因此您可以将 HTTP 或 HTTPS 站点映射到其对立面。</p>
+<h5 id="站点匹配"><a href="#站点匹配" class="headerlink" title="站点匹配"></a>站点匹配</h5><p>每个站点匹配可能包含协议、主机、端口和路径模式，以匹配特定的 URL。站点可能包括通配符。当您向此工具添加新站点时，可能会找到有关创建站点匹配的更多帮助。</p>
+<h4 id="Map-Local-Settings-本地映射"><a href="#Map-Local-Settings-本地映射" class="headerlink" title="Map Local Settings(本地映射)"></a>Map Local Settings(本地映射)</h4><p>Map Local 工具使您可以使用本地文件，就像它们是远程网站的一部分一样。您可以在本地开发文件，并像在线上一样测试它们。本地文件的内容将返回给客户端，就像它是正常的远程响应一样。</p>
+<p>Map Local 可以大大加快开发和测试速度，否则您必须将文件上传到网站以测试结果。使用 Map Local，您可以在开发环境中安全地进行测试。</p>
+<h5 id="动态文件"><a href="#动态文件" class="headerlink" title="动态文件"></a>动态文件</h5><p>动态文件（例如包含服务器端脚本的文件）不会由 Map Local 执行，因此如果文件中有任何脚本，脚本将按原样返回到浏览器，这可能不是预期的结果。如果您想使用动态文件，就好像它们是远程网站的一部分一样，请参阅 Map Remote 工具。</p>
+<h5 id="工作原理-2"><a href="#工作原理-2" class="headerlink" title="工作原理"></a>工作原理</h5><p>当请求与 Map Local 映射匹配时，它会检查与路径匹配的本地文件。它不包括查询字符串（如果有）。如果在本地找到所请求的文件，则将其作为响应返回，就好像它是从远程站点加载的一样，因此它对客户端是透明的。如果在本地找不到所请求的文件，那么该请求会像平常一样由网站提供，返回由真正的服务器提供的数据。</p>
+<h5 id="站点匹配-1"><a href="#站点匹配-1" class="headerlink" title="站点匹配"></a>站点匹配</h5><p>每个站点匹配可能包含协议、主机、端口和路径模式，以匹配特定的 URL。站点可能包括通配符。当您向此工具添加新站点时，可能会找到有关创建站点匹配的更多帮助。</p>
+<h4 id="Rewrite-Settings-重写"><a href="#Rewrite-Settings-重写" class="headerlink" title="Rewrite Settings(重写)"></a>Rewrite Settings(重写)</h4><p>Rewrite 工具允许创建请求和响应在通过 Charles 时修改他们的规则。如：添加或更改头信息、搜索和替换响应内容中的某些文本等。</p>
+<h5 id="重写集"><a href="#重写集" class="headerlink" title="重写集"></a>重写集</h5><p>重写集可以单独激活和停用。每个集合包含站点和规则的列表。这些站点选择规则将要运行的请求和响应。</p>
+<h5 id="重写规则"><a href="#重写规则" class="headerlink" title="重写规则"></a>重写规则</h5><p>每个规则都描述了一次重写操作。规则可能会影响请求URL的 Header，正文或部分内容；它可以根据请求或响应来操作；它可以定义搜索、替换或者仅替换样式重写。</p>
+<h5 id="站点匹配-2"><a href="#站点匹配-2" class="headerlink" title="站点匹配"></a>站点匹配</h5><p>每个站点匹配可能包含协议、主机、端口和路径模式，以匹配特定的 URL。站点可能包括通配符。当您向此工具添加新站点时，可能会找到有关创建站点匹配的更多帮助。</p>
+<h5 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h5><p>当重写操作未按预期工作时，重写工具可能难以调试。如果您遇到问题，请尝试添加一个非常基本的规则，例如添加明显头信息的规则，以便您可以查看规则是否与请求完全匹配。同时打开错误日志中的调试，以获取从 Charles 中的 Window 菜单访问的错误日志中打印的一些调试信息。</p>
+<h4 id="Black-List-Settings-黑名单"><a href="#Black-List-Settings-黑名单" class="headerlink" title="Black List Settings(黑名单)"></a>Black List Settings(黑名单)</h4><p>Black List 工具允许输入应该被阻止的域名。当 Web 浏览器尝试从被列入黑名单的域名请求任何页面时，该请求将被 Charles 阻止。您还可以输入通配符来阻止其子域名。</p>
+<h4 id="White-List-Settings-白名单"><a href="#White-List-Settings-白名单" class="headerlink" title="White List Settings(白名单)"></a>White List Settings(白名单)</h4><p>Black List 工具允许输入仅仅被允许的域名。Black List 工具将阻止除被列入白名单的域名之外的所有请求。</p>
+<blockquote>
+<p>白名单工具用于仅允许指定的域名；黑名单工具，用于仅屏蔽指定的域名。</p>
+<p>如果一个请求与“黑名单”和“白名单”都匹配，则该请求会被阻止。</p>
+</blockquote>
+<h4 id="DNS-Spoofing-Settings-DNS-欺骗"><a href="#DNS-Spoofing-Settings-DNS-欺骗" class="headerlink" title="DNS Spoofing Settings(DNS 欺骗)"></a>DNS Spoofing Settings(DNS 欺骗)</h4><p>DNS Spoofing 工具允许通过将自己的主机名指定给远程地址映射来欺骗 DNS 查找。 当请求通过 Charles 时，您的 DNS 映射将优先。</p>
+<p>Charles 包含配置的域名到 IP 地址映射的列表。当针对列出的域名发出请求时，Spoof DNS 插件会发现欺骗 IP 将请求重定向到该地址。主机HTTP标头保持不变，因此就像您的 DNS 服务器返回欺骗性 IP一样。</p>
+<h5 id="虚拟主机"><a href="#虚拟主机" class="headerlink" title="虚拟主机"></a>虚拟主机</h5><p>虚拟主机是指单个IP地址上有多个站点，Web 服务器根据浏览器中键入的名称确定要请求的站点。更准确地说，它查看请求中发送的主机头。</p>
+<p>如果没有为您的站点设置 DNS，那么您通常无法测试它，因为您不能只输入 IP 地址，因为服务器无法获取名称，因此无法将请求与网站。使用 DNS 欺骗工具来克服此问题。</p>
+<h4 id="Mirror-Settings-镜像"><a href="#Mirror-Settings-镜像" class="headerlink" title="Mirror Settings(镜像)"></a>Mirror Settings(镜像)</h4><p>Mirror 工具会在浏览指定站点时，把接收到的响应内容克隆一份，并保存在磁盘上指定的路径下。</p>
+<p>保存文件的路径会与浏览站点的目录结构相同，并且 Charles 会为主机名创建一个根目录。文件名从 URL 导出并转换为适合的数据进行保存。查询字符串包含在文件名中。如果收到相同 URL 的两个响应，则后面一个文件会覆盖前面的同名文件，因此保存在镜像中在的响应内容将始终为最新的。</p>
+<h5 id="选定站点"><a href="#选定站点" class="headerlink" title="选定站点"></a>选定站点</h5><p>可以为每个请求启用该工具，也可以仅为指定站点启用该工具。当用于选定的站点时，可以使用简单但功能强大的模式匹配将工具的效果限制为指定的主机和/或路径。</p>
+<h5 id="副作用"><a href="#副作用" class="headerlink" title="副作用"></a>副作用</h5><p>如果为请求启用镜像工具，它将导致任何压缩或编码的响应被解码。因此，如果服务器提供了压缩响应，Charles 将在传递给客户端之前对其进行解压缩，这通常不会产生任何影响。但是如果您已经构建了自己的客户端，或者客户端希望得到压缩响应，此时将会产生影响。使用 web 浏览器则没有任何影响。</p>
+<h4 id="Auto-Save-Settings-自动保存"><a href="#Auto-Save-Settings-自动保存" class="headerlink" title="Auto Save Settings(自动保存)"></a>Auto Save Settings(自动保存)</h4><p>Auto Save 工具会按设定的时间间隔自动保存和清除记录会话。</p>
+<p>如果您让 Charles 长时间监控网络活动，并希望将记录分解为可管理的单元，或者避免因数据量过大而可能出现的内存不足情况，这将非常有用。</p>
+<p>输入以分钟为单位的保存间隔以及保存会话文件的目录。您可以选择是否在每次运行 Charles 时启动 <code>Auto Save</code> 工具，否则在 Charles 启动时将始终禁用 <code>Auto Save</code> 工具。</p>
+<p>会话文件的名称中保存时间戳，格式为 <code>yyyyMMddHHmm</code>，即年月日时分，以便按字母顺序排序时，它们以正确的顺序显示。</p>
+<h4 id="Client-Process-Settings-客户端进程"><a href="#Client-Process-Settings-客户端进程" class="headerlink" title="Client Process Settings(客户端进程)"></a>Client Process Settings(客户端进程)</h4><p>Client Process 工具显示负责发出每个请求的本地客户端进程的名称。客户端进程通常是您的 Web 浏览器(例如 firefox.exe)，但客户端进程工具可以帮助您发现许多可能未知的 HTTP 客户端。</p>
+<p>客户端进程名称显示在每个请求的 <code>Notes</code> 区域中。</p>
+<p>如果您可以在 Charles 中看到不确定原始进程的请求，则客户端进程工具很有用。 它仅适用于在运行 Charles 的计算机上发出的请求。</p>
+<p>在 Charles 接受每个连接之前，该工具将引入一个短暂的延迟。 延迟通常不明显或不显著。</p>
+<h5 id="选定站点-1"><a href="#选定站点-1" class="headerlink" title="选定站点"></a>选定站点</h5><p>可以为每个请求启用该工具，也可以仅为指定站点启用该工具。当用于选定的站点时，可以使用简单但功能强大的模式匹配将工具的效果限制为指定的主机和/或路径。</p>
+<h4 id="Compose-编辑修改"><a href="#Compose-编辑修改" class="headerlink" title="Compose(编辑修改)"></a>Compose(编辑修改)</h4><p>Compose 工具允许在原有的请求基础上修改。</p>
+<h4 id="Repeat-重复"><a href="#Repeat-重复" class="headerlink" title="Repeat(重复)"></a>Repeat(重复)</h4><p>Repeat 工具允许选择一个请求并重复它。Charles 将请求重新发送到服务器，并将响应显示为新请求。如果您正在进行后端更改并希望在浏览器(或其他客户机)中重复请求的情况下测试这些更改，那么这将非常有用。特别是如果重新创建请求需要花费一些精力，例如在游戏中获得分数，这将节省大量精力。</p>
+<p>重复请求是在 Charles 内部完成的，因此无法在浏览器或其他客户端中查看响应，响应只能在 Charles 中查看。</p>
+<h4 id="Repeat-Advanced-高级重复"><a href="#Repeat-Advanced-高级重复" class="headerlink" title="Repeat Advanced(高级重复)"></a>Repeat Advanced(高级重复)</h4><p>Repeat Advanced 工具扩展了 Repeat 工具，提供了迭代次数和并发数的选项。这对于负载测试非常有用。</p>
+<h4 id="Validate-验证"><a href="#Validate-验证" class="headerlink" title="Validate(验证)"></a>Validate(验证)</h4><p>Validate 工具允许 Charles 通过将它们发送到 W3C HTML 验证器、W3C CSS 验证器和 W3C Feed 验证器来验证记录的响应。</p>
+<p>验证报告在 Charles 中显示，其中包含与响应源中相应行相关联的任何警告或错误（双击错误消息中的行号可以切换到源视图）。</p>
+<p>因为 Charles 测试它记录的响应，所以它可以测试不易测试的场景，例如在提交表单后呈现错误消息。</p>
+<h5 id="重新验证"><a href="#重新验证" class="headerlink" title="重新验证"></a>重新验证</h5><p>验证后，可以从验证结果中选择响应并 <code>Repeat</code>，重复原始请求，然后重新验证结果。</p>
+<h4 id="Publish-Gist-发布要点"><a href="#Publish-Gist-发布要点" class="headerlink" title="Publish Gist(发布要点)"></a>Publish Gist(发布要点)</h4><p>Publish Gist 工具可以将将所选请求和响应作为要点发布。默认情况下，这个要点将匿名发布，这意味着你将无法做到 删除它。可以在 <code>Tools</code> 菜单的 <code>Publish Gist Settings</code> 中授权 Charles 使用您的 GitHub 帐户进行发布。</p>
+<h4 id="Import-Export-Settings-导入-导出"><a href="#Import-Export-Settings-导入-导出" class="headerlink" title="Import/Export Settings(导入/导出)"></a>Import/Export Settings(导入/导出)</h4><p>Import/Export 工具允许导入/导出 Charles 的 <code>Proxy</code>、<code>Tools</code>、<code>Preferences</code> 等设置。</p>
+<h4 id="Profiles-配置"><a href="#Profiles-配置" class="headerlink" title="Profiles(配置)"></a>Profiles(配置)</h4><p>Profiles 包含所有配置设置的完整副本。</p>
+<p>每次更改当前设置时，系统都会更新当前活动的配置文件，当您更改活动配置文件时，所有设置都将恢复为上次使用该配置文件时的状态。</p>
+<p>请注意，如果导入已保存的配置，则会覆盖当前配置文件的设置。建议使用导入/导出来备份或创建当前配置和配置文件的快照，以维护多个并行工作区。</p>
+<h2 id="Charles-使用教程"><a href="#Charles-使用教程" class="headerlink" title="Charles 使用教程"></a>Charles 使用教程</h2><h3 id="通过-Charles-进行-PC-端抓包"><a href="#通过-Charles-进行-PC-端抓包" class="headerlink" title="通过 Charles 进行 PC 端抓包"></a>通过 Charles 进行 PC 端抓包</h3><p>Charles 会自动配置浏览器和工具的代理设置，所以说打开工具直接就已经是抓包状态了。只需要保证一下几点即可：</p>
+<ol>
+<li>确保 Charles 处于 Start Recording 状态。</li>
+<li>勾选 <strong>Proxy | Windows Proxy</strong> 和 <strong>Proxy | Mozilla FireFox Proxy</strong>。</li>
+</ol>
+<h3 id="通过-Charles-进行移动端抓包"><a href="#通过-Charles-进行移动端抓包" class="headerlink" title="通过 Charles 进行移动端抓包"></a>通过 Charles 进行移动端抓包</h3><p>手机抓包的原理，和 PC 类似，手机通过把网络委托给 Charles 进行代理与服务端进行对话。具体步骤如下：</p>
+<ol>
+<li>使手机和电脑在一个局域网内，不一定非要是一个 IP 段，只要是在同一个路由器下即可。</li>
+<li><p>电脑端配置：</p>
+<ul>
+<li>关掉电脑端的防火墙（这点很重要）。</li>
+<li>打开 Charles 的代理功能：通过主菜单打开 <strong>Proxy | Proxy Settings</strong> 弹窗，填入代理端口(端口默认为 <code>8888</code>，不用修改)，勾选 <code>Enable transparent HTTP proxying</code>。</li>
+<li>如果不需要抓取电脑上的请求，可以取消勾选 <strong>Proxy | Windows Proxy</strong> 和 <strong>Proxy | Mozilla FireFox Proxy</strong>。</li>
+</ul>
+</li>
+<li><p>手机端配置：</p>
+<ul>
+<li>通过 Charles 的主菜单 <strong>Help | Local IP Address</strong> 或者通过命令行工具输入 <code>ipconfig</code> 查看本机的 IP 地址。</li>
+<li>设置代理：打开手机端的 WIFI 代理设置，输入电脑 IP 和 Charles 的代理端口。</li>
+</ul>
+</li>
+<li>设置好之后，我们打开手机上的任意需要网络请求的程序，就可以看到 Charles 弹出手机请求连接的确认菜单（只有首次弹出），点击 <strong>Allow</strong> 即可完成设置。</li>
+<li>完成以上步骤，就可以进行抓包了。</li>
+</ol>
+<h3 id="通过-Charles-进行-HTTPS-抓包"><a href="#通过-Charles-进行-HTTPS-抓包" class="headerlink" title="通过 Charles 进行 HTTPS 抓包"></a>通过 Charles 进行 HTTPS 抓包</h3><p>HTTPS 的抓包需要在 HTTP 抓包基础上再进行设置。需要完成一下步骤：</p>
+<ol>
+<li>完成 HTTP 抓包配置。</li>
+<li>电脑端安装 Charles 证书：通过 Charles 的主菜单 <strong>Help | SSL Proxying | Install Charles Root Certificate</strong> 安装证书。</li>
+<li>设置 SSL 代理：通过主菜单打开 <strong>Proxy | SSL Proxy Settings</strong> 弹窗，勾选 <code>Enable SSL proxying</code>。</li>
+<li>移动端安装 Charles 证书：通过 Charles 的主菜单 <strong>Help | SSL Proxying | Install Charles Root Certificate on a Mobile Device or Remote Browser</strong> 安装证书。</li>
+<li>设置好之后，我们打开手机上的任意需要网络请求的程序，就可以看到 Charles 弹出手机请求连接的确认菜单（只有首次弹出），点击 <strong>Allow</strong> 即可完成设置。</li>
+<li>完成以上步骤，就可以进行 HTTPS 抓包了。</li>
+</ol>
+<h2 id="Charles-License"><a href="#Charles-License" class="headerlink" title="Charles License"></a>Charles License</h2><ul>
+<li>Registered Name: <a href="https://zhile.io" target="_blank" rel="noopener"><code>https://zhile.io</code></a></li>
+<li>License Key: <code>48891cf209c6d32bf4</code></li>
+</ul>
+<p>注册码来自于网络，注册码 Windows 和 Mac 通用</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;margin-top:50px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/记录篇/" rel="tag"><i class="fa fa-tag"></i> 记录篇</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2024/08/01/前端/杂记/whistle笔记/" rel="next" title="whistle笔记">
+                <i class="fa fa-chevron-left"></i> whistle笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2024/08/01/前端/杂记/nginx/" rel="prev" title="nginx笔记">
+                nginx笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/杂记/one.jpg" alt="只有极其努力，才能看起来毫不费力。">
+            
+              <p class="site-author-name" itemprop="name">只有极其努力，才能看起来毫不费力。</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">50</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://15735046155.github.io/" title="GitHub &rarr; https://15735046155.github.io/" rel="noopener" target="_blank"><i class="fa fa-fw fa-globe"></i>GitHub</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Charles-功能介绍和使用教程"><span class="nav-number">1.</span> <span class="nav-text">Charles 功能介绍和使用教程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Charles-简介"><span class="nav-number">1.1.</span> <span class="nav-text">Charles 简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下载安装-Charles"><span class="nav-number">1.2.</span> <span class="nav-text">下载安装 Charles</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Charles-主界面介绍"><span class="nav-number">1.3.</span> <span class="nav-text">Charles 主界面介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#工具导航栏"><span class="nav-number">1.3.1.</span> <span class="nav-text">工具导航栏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主界面视图"><span class="nav-number">1.3.2.</span> <span class="nav-text">主界面视图</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Charles-菜单介绍"><span class="nav-number">1.4.</span> <span class="nav-text">Charles 菜单介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Proxy-菜单"><span class="nav-number">1.4.1.</span> <span class="nav-text">Proxy 菜单</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Recording-Settings-记录会话设置"><span class="nav-number">1.4.1.1.</span> <span class="nav-text">Recording Settings(记录会话设置)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Throttle-Settings-节流设置"><span class="nav-number">1.4.1.2.</span> <span class="nav-text">Throttle Settings(节流设置)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Breakpoint-Settings-断点设置"><span class="nav-number">1.4.1.3.</span> <span class="nav-text">Breakpoint Settings(断点设置)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Reverse-Proxies-Settings-反向代理设置"><span class="nav-number">1.4.1.4.</span> <span class="nav-text">Reverse Proxies Settings(反向代理设置)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Port-Forwarding-Settings-端口转发"><span class="nav-number">1.4.1.5.</span> <span class="nav-text">Port Forwarding Settings(端口转发)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Windows-Proxy-记录计算机上的所有请求"><span class="nav-number">1.4.1.6.</span> <span class="nav-text">Windows Proxy(记录计算机上的所有请求)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Proxy-Settings-代理设置"><span class="nav-number">1.4.1.7.</span> <span class="nav-text">Proxy Settings(代理设置)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SSL-Proxy-Settings-SSL-代理设置"><span class="nav-number">1.4.1.8.</span> <span class="nav-text">SSL Proxy Settings(SSL 代理设置)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Access-Control-Settings-访问控制设置"><span class="nav-number">1.4.1.9.</span> <span class="nav-text">Access Control Settings(访问控制设置)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#External-Proxy-Settings-外部代理设置"><span class="nav-number">1.4.1.10.</span> <span class="nav-text">External Proxy Settings(外部代理设置)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Web-Interface-Settings-Web-界面设置"><span class="nav-number">1.4.1.11.</span> <span class="nav-text">Web Interface Settings(Web 界面设置)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tools-菜单"><span class="nav-number">1.4.2.</span> <span class="nav-text">Tools 菜单</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#No-Caching-Settings-禁用缓存"><span class="nav-number">1.4.2.1.</span> <span class="nav-text">No Caching Settings(禁用缓存)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#适用范围"><span class="nav-number">1.4.2.1.1.</span> <span class="nav-text">适用范围</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#工作原理"><span class="nav-number">1.4.2.1.2.</span> <span class="nav-text">工作原理</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Block-Cookies-Settings-禁用-Cookie"><span class="nav-number">1.4.2.2.</span> <span class="nav-text">Block Cookies Settings(禁用 Cookie)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#适用范围-1"><span class="nav-number">1.4.2.2.1.</span> <span class="nav-text">适用范围</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#工作原理-1"><span class="nav-number">1.4.2.2.2.</span> <span class="nav-text">工作原理</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Map-Remote-Settings-远程映射"><span class="nav-number">1.4.2.3.</span> <span class="nav-text">Map Remote Settings(远程映射)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#使用建议"><span class="nav-number">1.4.2.3.1.</span> <span class="nav-text">使用建议</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#映射类型"><span class="nav-number">1.4.2.3.2.</span> <span class="nav-text">映射类型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#HTTPS"><span class="nav-number">1.4.2.3.3.</span> <span class="nav-text">HTTPS</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#站点匹配"><span class="nav-number">1.4.2.3.4.</span> <span class="nav-text">站点匹配</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Map-Local-Settings-本地映射"><span class="nav-number">1.4.2.4.</span> <span class="nav-text">Map Local Settings(本地映射)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#动态文件"><span class="nav-number">1.4.2.4.1.</span> <span class="nav-text">动态文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#工作原理-2"><span class="nav-number">1.4.2.4.2.</span> <span class="nav-text">工作原理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#站点匹配-1"><span class="nav-number">1.4.2.4.3.</span> <span class="nav-text">站点匹配</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Rewrite-Settings-重写"><span class="nav-number">1.4.2.5.</span> <span class="nav-text">Rewrite Settings(重写)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#重写集"><span class="nav-number">1.4.2.5.1.</span> <span class="nav-text">重写集</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#重写规则"><span class="nav-number">1.4.2.5.2.</span> <span class="nav-text">重写规则</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#站点匹配-2"><span class="nav-number">1.4.2.5.3.</span> <span class="nav-text">站点匹配</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#调试"><span class="nav-number">1.4.2.5.4.</span> <span class="nav-text">调试</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Black-List-Settings-黑名单"><span class="nav-number">1.4.2.6.</span> <span class="nav-text">Black List Settings(黑名单)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#White-List-Settings-白名单"><span class="nav-number">1.4.2.7.</span> <span class="nav-text">White List Settings(白名单)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DNS-Spoofing-Settings-DNS-欺骗"><span class="nav-number">1.4.2.8.</span> <span class="nav-text">DNS Spoofing Settings(DNS 欺骗)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#虚拟主机"><span class="nav-number">1.4.2.8.1.</span> <span class="nav-text">虚拟主机</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Mirror-Settings-镜像"><span class="nav-number">1.4.2.9.</span> <span class="nav-text">Mirror Settings(镜像)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#选定站点"><span class="nav-number">1.4.2.9.1.</span> <span class="nav-text">选定站点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#副作用"><span class="nav-number">1.4.2.9.2.</span> <span class="nav-text">副作用</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Auto-Save-Settings-自动保存"><span class="nav-number">1.4.2.10.</span> <span class="nav-text">Auto Save Settings(自动保存)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Client-Process-Settings-客户端进程"><span class="nav-number">1.4.2.11.</span> <span class="nav-text">Client Process Settings(客户端进程)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#选定站点-1"><span class="nav-number">1.4.2.11.1.</span> <span class="nav-text">选定站点</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Compose-编辑修改"><span class="nav-number">1.4.2.12.</span> <span class="nav-text">Compose(编辑修改)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Repeat-重复"><span class="nav-number">1.4.2.13.</span> <span class="nav-text">Repeat(重复)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Repeat-Advanced-高级重复"><span class="nav-number">1.4.2.14.</span> <span class="nav-text">Repeat Advanced(高级重复)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Validate-验证"><span class="nav-number">1.4.2.15.</span> <span class="nav-text">Validate(验证)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#重新验证"><span class="nav-number">1.4.2.15.1.</span> <span class="nav-text">重新验证</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Publish-Gist-发布要点"><span class="nav-number">1.4.2.16.</span> <span class="nav-text">Publish Gist(发布要点)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Import-Export-Settings-导入-导出"><span class="nav-number">1.4.2.17.</span> <span class="nav-text">Import/Export Settings(导入/导出)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Profiles-配置"><span class="nav-number">1.4.2.18.</span> <span class="nav-text">Profiles(配置)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Charles-使用教程"><span class="nav-number">1.5.</span> <span class="nav-text">Charles 使用教程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#通过-Charles-进行-PC-端抓包"><span class="nav-number">1.5.1.</span> <span class="nav-text">通过 Charles 进行 PC 端抓包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过-Charles-进行移动端抓包"><span class="nav-number">1.5.2.</span> <span class="nav-text">通过 Charles 进行移动端抓包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过-Charles-进行-HTTPS-抓包"><span class="nav-number">1.5.3.</span> <span class="nav-text">通过 Charles 进行 HTTPS 抓包</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Charles-License"><span class="nav-number">1.6.</span> <span class="nav-text">Charles License</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2024</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-snowflake-o"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">只有极其努力，才能看起来毫不费力。</span>
+
+  
+
+  
+</div>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i>
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</div>
+
+<span class="post-meta-divider">|</span>
+
+<div class="powered-by">
+<i class="fa fa-eye"></i>
+  本站总访问量:<span id="busuanzi_value_site_pv"></span>
+</div>
+
+<!--
+
+-->
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.1"></script>
+
+  <script src="/js/motion.js?v=7.1.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.1"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+<script>
+  $('.highlight').not('.gist .highlight').each(function(i, e) {
+    var $wrap = $('<div>').addClass('highlight-wrap');
+    $(e).after($wrap);
+    $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function(e) {
+      var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+        return $(e).text();
+      }).toArray().join('\n');
+      var ta = document.createElement('textarea');
+      var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+      ta.style.top = yPosition + 'px'; // Prevent page scroll
+      ta.style.position = 'absolute';
+      ta.style.opacity = '0';
+      ta.readOnly = true;
+      ta.value = code;
+      document.body.appendChild(ta);
+      ta.select();
+      ta.setSelectionRange(0, code.length);
+      ta.readOnly = false;
+      var result = document.execCommand('copy');
+      
+        if (result) $(this).text('复制成功');
+        else $(this).text('复制失败');
+      
+      ta.blur(); // For iOS
+      $(this).blur();
+    })).on('mouseleave', function(e) {
+      var $b = $(this).find('.copy-btn');
+      setTimeout(function() {
+        $b.text('复制');
+      }, 300);
+    }).append(e);
+  })
+</script>
+
+
+  
+
+  
+
+
+  
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
